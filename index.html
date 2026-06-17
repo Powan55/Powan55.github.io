@@ -1,252 +1,425 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <script src="https://kit.fontawesome.com/84344e10ff.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Set JS flag + theme before paint (no FOUC, content stays visible if JS fails) -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("js");
+      try {
+        var t = localStorage.getItem("theme") ||
+          (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        d.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Laxmi Poudel — Software Engineer (Full-Stack &amp; Test Automation)</title>
+  <meta name="description" content="Laxmi Poudel — software engineer building full-stack features (Java/Spring, Angular, PostgreSQL) and production test automation (LabVIEW, TestStand, Python). B.S. Software Engineering, RIT. Syracuse, NY." />
+  <meta name="author" content="Laxmi Poudel" />
+  <meta name="theme-color" content="#0a0e1a" />
+  <link rel="canonical" href="https://powan55.github.io/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Laxmi Poudel — Software Engineer" />
+  <meta property="og:description" content="Full-stack software engineer (Java/Spring · Angular · PostgreSQL) and test-automation engineer. FAA surveillance systems + high-volume radar production test." />
+  <meta property="og:url" content="https://powan55.github.io/" />
+  <meta property="og:image" content="https://powan55.github.io/assets/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Laxmi Poudel — Software Engineer" />
+  <meta name="twitter:description" content="Full-stack + test-automation engineer. FAA surveillance systems & high-volume radar production test." />
+  <meta name="twitter:image" content="https://powan55.github.io/assets/img/og-image.png" />
+
+  <!-- Favicon (inline SVG monogram) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2338bdf8'/%3E%3Cstop offset='0.55' stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230a0e1a'/%3E%3Crect x='3' y='3' width='58' height='58' rx='12' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='30' font-weight='700' text-anchor='middle' fill='url(%23g)'%3ELP%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://kit.fontawesome.com/84344e10ff.js" crossorigin="anonymous" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Laxmi Poudel",
+    "jobTitle": "Software Engineer",
+    "url": "https://powan55.github.io/",
+    "email": "mailto:laxmipoudel311@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Liverpool", "addressRegion": "NY", "addressCountry": "US" },
+    "alumniOf": "Rochester Institute of Technology",
+    "sameAs": [
+      "https://www.linkedin.com/in/laxmi-poudel-b8379b166/",
+      "https://github.com/Powan55"
+    ]
+  }
+  </script>
 </head>
 <body>
-   <div id="header">
-        <div class="container">
-            <nav>
-                <img src="images/logo.png" class="logo">
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class="fas fa-times" onclick="closemenu()"></i>
-                </ul>
-                <i class="fas fa-bars" onclick="openmenu()"></i>
-            </nav>
-            <div class="header-text">
-                <p>Software Engineer</p>
-                <h1>Hi, I'm <span>Laxmi</span> <br> From New York</h1>
-            </div>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== NAV ===================== -->
+  <header id="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="Laxmi Poudel — home">
+        <span class="brand-mark">LP</span>
+        <span class="brand-name">Laxmi&nbsp;Poudel</span>
+      </a>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#strengths">What I Do</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch to light theme" title="Toggle theme">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <button id="nav-toggle" class="icon-btn nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
-<!-----------------------------About ME--------------------------------->
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="images/2022CareerFair_Headshots_324.jpg">
-                </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p>
-                        I'm Laxmi Poudel, currently pursuing my Bachelor's degree in Software Engineering at Rochester Institute of Technology (RIT).
-                        With a diverse skill set encompassing Java, C++, Python, SQL, and more, I'm deeply passionate about crafting innovative solutions
-                        in the digital landscape. In my academic journey, I've undertaken notable projects such as "FootWare," an intuitive e-store
-                        catering to footwear enthusiasts, and "Trivial-Trivia," a captivating trivia game designed to entertain and engage.
-                        My focus lies predominantly in backend development and system design, where I thrive on architecting efficient and
-                        scalable solutions, leveraging my knowledge of design patterns to create robust software systems.
-                        <br>
-                        <br>
-                        Looking forward, my career aspirations center around leadership roles in software project management and beyond.
-                        I'm driven to channel my technical acumen and collaborative spirit into steering projects to success, ultimately
-                        aiming to ascend to the position of Software Manager. Beyond the realms of coding and software engineering,
-                        I find solace in exploring new destinations, maintaining a healthy lifestyle through regular gym sessions, and
-                        fostering bonds with friends through spirited soccer matches. I believe in the power of balance, blending professional growth
-                         with personal pursuits to lead a fulfilling life.
-                    </p>
+  </header>
 
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
-                    </div>
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section id="home" class="hero">
+      <div class="aurora" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+      </div>
+      <div class="container hero-inner">
+        <p class="eyebrow" data-reveal>Software Engineer · Level&nbsp;2+</p>
+        <h1 class="hero-title" data-reveal>
+          Hi, I'm <span class="grad-text">Laxmi&nbsp;Poudel</span>
+        </h1>
+        <p class="hero-role" data-reveal>
+          <span class="static-role">I build&nbsp;</span><span id="typed-role" class="typed-role" aria-hidden="true"></span><span class="visually-hidden">full-stack software and the test automation behind it</span>
+        </p>
+        <p class="hero-lead" data-reveal>
+          I ship customer-facing production software and own the test automation behind it. I built features for an
+          <strong>FAA air-traffic surveillance system</strong> on a Java/Spring&nbsp;+&nbsp;Angular&nbsp;+&nbsp;PostgreSQL stack, and now build the
+          <strong>automated test software</strong> for a high-volume radar production line.
+        </p>
 
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>Languages</span><br>Java, C++, C, Python, SQL, JavaScript</li>
-                            <li><span>Design Patterns</span><br>Using design patterns to create robust software systems</li>
-                            <li><span>UI/UX</span><br>Designing Web/APP interfaces</li>
-                        </ul>
-                    </div>
+        <ul class="stat-chips" data-reveal>
+          <li><span class="stat-num">2&times;</span> faster DB queries</li>
+          <li><span class="stat-num">~20%</span> better data accuracy</li>
+          <li><span class="stat-num">0&nbsp;→&nbsp;100%</span> first-time pass rate</li>
+          <li><span class="stat-num">B.S.</span> Software Engineering, RIT</li>
+        </ul>
 
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>May 2025</span><br>I am a senior Software Engineering student at Rochester Institute of Technology (RIT).</li>
-                        </ul>
-                    </div>
-
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>May 2024 - Aug 2024</span><br>Test Engineering Intern at SRCTec Inc.</li>
-                            <li><span>Jan 2023 - Aug 2023</span><br>Software Engineering Co-op at Saab Inc.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
+        <div class="hero-cta" data-reveal>
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="assets/resume/Laxmi-Poudel-Resume.pdf" class="btn btn-ghost" download>
+            <i class="fa-solid fa-download" aria-hidden="true"></i> Download Résumé
+          </a>
+          <a href="#contact" class="btn btn-link">Get in Touch &rarr;</a>
         </div>
-    </div>
 
-
-   <!--------Services---------->
-
-    <div id="services">
-        <div class="container">
-            <h1 class="sub-title">My Services</h1>
-            <div class="services-list">
-                <div>
-                    <i class="fa-solid fa-code"></i>
-                    <h2>Custom Software Development</h2>
-                    <p>
-                        Building tailored software solutions for businesses or 
-                        individuals according to their specific needs and requirements.
-                    </p>
-                    <a href="#">learn more</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-server"></i>
-                    <h2>Backend Development</h2>
-                    <p>
-                        Building the server-side logic and databases for web and mobile applications 
-                        using languages like Python or Java, along with frameworks like Spring Boot.
-                    </p>
-                    <a href="#">learn more</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-globe"></i>
-                    <h2>Web Development</h2>
-                    <p>
-                        Creating websites and web applications using various technologies such as HTML, CSS, JavaScript, and frameworks like React or Angular
-                    </p>
-                    <a href="#">learn more</a>
-                </div>
-            </div>
+        <div class="hero-socials" data-reveal>
+          <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+          <a href="mailto:laxmipoudel311@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
         </div>
-    </div>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+    </section>
 
-<!----------------Portfolio------------------>
-
-    <div id="portfolio">
-        <div class="container">
-            <h1 class="sub-title">My Work</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="images/Nimbus.jpeg">
-                    <div class="layer">
-                        <h3>Multi-Cloud Monitoring Dashboard Enhance</h3>
-                        <p>The goal of this project is to maintain and implement features for an existing internal React.js web application. This application interfaces with multiple cloud platforms including AWS, Azure and Google Cloud. This application serves as a tool with an intuitive UI that is easy to maintain. This application will be used by digital teams and will help provide insight into cloud metrics and logging information. This information will be conveyed via chart and graph components generated by Grafana.</p>
-                        <a href="https://the-nimbus-navigators.github.io/senior-project-website/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="images/Trivial-Trivia.jpg">
-                    <div class="layer">
-                        <h3>Trivial-Trivia</h3>
-                        <p>Trivial-Trivia is a platform dedicated to providing fun and engaging trivia
-                            questions and quizzes for enthusiasts of all ages.</p>
-                        <a href="https://trivialtrivia.azurewebsites.net/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-
-                <div class="work">
-                    <img src="images/Footware.jpg">
-                    <div class="layer">
-                        <h3>E-Store: FootWare</h3>
-                        <p>FootWare is an online store specializing in stylish and high-quality footwear for enthusiasts.
-                             With a curated selection ranging from trendy sneakers to elegant heels,
-                             it offers a seamless shopping experience with user-friendly navigation.
-                            </p>
-                            <a href="https://github.com/Powan55/FootWare"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                
-            </div>
-            <a href="https://github.com/Powan55" class="btn">See More</a>
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-photo" data-reveal>
+          <img src="assets/img/headshot.jpg" alt="Laxmi Poudel headshot" width="420" height="520" loading="lazy" />
         </div>
-    </div>
-
-<!-----------------Contact-------------------->
-    <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class="fa-regular fa-envelope"></i>laxmipoudel311@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i>(315)380-6241</p>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                    <a href="images/Final-Resume.pdf" download
-                        class="btn btn2">Download Resume</a>
-                </div>
-                <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                    <span id="msg"></span>
-                </div>
-            </div>
+        <div class="about-body" data-reveal>
+          <p class="kicker">About</p>
+          <h2 id="about-title" class="section-title">A software engineer who ships <span class="grad-text">and</span> verifies.</h2>
+          <p>
+            I'm Laxmi Poudel, a software engineer based in the Syracuse, NY area with a
+            <strong>B.S. in Software Engineering from Rochester Institute of Technology (RIT)</strong>.
+            I build full-stack features end to end with REST/API integration and object-oriented design — including
+            customer-facing software for an FAA air-traffic surveillance system on a Java/Spring, Angular, and PostgreSQL stack.
+          </p>
+          <p>
+            Today I build and maintain the automated test software for a high-volume radar production program in
+            LabVIEW, TestStand, and Python, root-causing system- and board-level failures and shipping fixes that move
+            real metrics. That mix — <strong>shipping production features and owning the test automation that proves them out</strong> —
+            lets me bridge development and quality and debug problems end to end.
+          </p>
+          <p class="about-target">
+            <i class="fa-solid fa-crosshairs" aria-hidden="true"></i>
+            Targeting mid-level (Level&nbsp;2+) Software Engineer roles; open to SDET / test-automation.
+            <span class="badge">U.S. Citizen · clearance-eligible</span>
+          </p>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== WHAT I DO ===================== -->
+    <section id="strengths" class="section section-alt" aria-labelledby="strengths-title">
+      <div class="container">
+        <p class="kicker" data-reveal>What I Do</p>
+        <h2 id="strengths-title" class="section-title" data-reveal>Where I create the most value</h2>
+        <div class="card-grid">
+          <article class="card glow-card" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+            <h3>Full-Stack Feature Delivery</h3>
+            <p>End-to-end features with REST/API integration and OOP on a Java/Spring + Angular + PostgreSQL stack. Shipped for an FAA surveillance system — <strong>2× faster queries</strong>, <strong>~20% better data accuracy</strong>.</p>
+          </article>
+          <article class="card glow-card" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
+            <h3>Test Automation &amp; SDET</h3>
+            <p>Build and maintain automated test software in LabVIEW, TestStand, and Python for a high-volume radar production program supporting ~10 test stations against FY27 demand of 200+ units.</p>
+          </article>
+          <article class="card glow-card" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div>
+            <h3>Root-Cause Debugging</h3>
+            <p>Drove a critical step's first-time pass rate from <strong>0% to 100%</strong>, restored production after an OS-upgrade regression, and led a multi-station toolchain migration in under 3 months.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <p class="kicker" data-reveal>Toolbox</p>
+        <h2 id="skills-title" class="section-title" data-reveal>Skills &amp; Technologies</h2>
+        <div class="skills-grid">
+          <div class="skill-group" data-reveal>
+            <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Languages</h3>
+            <ul class="chips">
+              <li>Java</li><li>Python</li><li>C / C++</li><li>SQL</li><li>JavaScript</li><li>HTML / CSS</li>
+            </ul>
+          </div>
+          <div class="skill-group" data-reveal>
+            <h3><i class="fa-solid fa-cubes" aria-hidden="true"></i> Frameworks &amp; Libraries</h3>
+            <ul class="chips">
+              <li>Spring</li><li>Spring Boot</li><li>Angular</li><li>React</li><li>Flask</li><li>JUnit</li><li>Maven</li><li>JSP</li><li>NumPy</li><li>SciPy</li><li>Log4j</li>
+            </ul>
+          </div>
+          <div class="skill-group" data-reveal>
+            <h3><i class="fa-solid fa-database" aria-hidden="true"></i> Databases</h3>
+            <ul class="chips"><li>PostgreSQL</li></ul>
+          </div>
+          <div class="skill-group" data-reveal>
+            <h3><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cloud, DevOps &amp; Tools</h3>
+            <ul class="chips">
+              <li>Docker</li><li>Kubernetes</li><li>Azure</li><li>Jenkins</li><li>Git</li><li>Jira</li><li>Wildfly</li><li>VS Code</li><li>IntelliJ</li><li>Eclipse</li>
+            </ul>
+          </div>
+          <div class="skill-group" data-reveal>
+            <h3><i class="fa-solid fa-vial-circle-check" aria-hidden="true"></i> Test &amp; Automation</h3>
+            <ul class="chips">
+              <li>Automated test development</li><li>Unit testing (JUnit)</li><li>LabVIEW</li><li>TestStand</li><li>FPGA programming</li><li>PMIC programming</li><li>T&amp;M hardware</li>
+            </ul>
+          </div>
+          <div class="skill-group" data-reveal>
+            <h3><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Platforms &amp; Methods</h3>
+            <ul class="chips">
+              <li>Linux</li><li>Windows Server</li><li>Windows</li><li>Agile / Scrum</li><li>REST APIs</li><li>Root-cause debugging</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section id="experience" class="section section-alt" aria-labelledby="exp-title">
+      <div class="container">
+        <p class="kicker" data-reveal>Career</p>
+        <h2 id="exp-title" class="section-title" data-reveal>Experience</h2>
+        <ol class="timeline">
+          <li class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card glow-card">
+              <div class="tl-head">
+                <h3>Test Engineer</h3>
+                <span class="tl-co">SRCTec · North Syracuse, NY</span>
+                <span class="tl-date">Aug 2025 – Present</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Build and maintain the automated test software for a radar production program in LabVIEW, TestStand, and Python; develop in-house test applications and integrate third-party packages to support ~10 test stations against FY27 demand of 200+ units.</li>
+                <li>Working on an initiative to raise first-time yield on a critical test station from below 50% toward an 80%+ target by identifying and eliminating false failures in the test software.</li>
+                <li>Root-caused a system-level FPGA programming failure and added a post-programming power cycle, lifting that step's first-time pass rate from 0% to 100% and cutting it from two test runs to one (~50% less test time on the step).</li>
+                <li>Restored production after a Windows 10-to-11 upgrade broke a board-level test's detection of TI Fusion for PMIC programming, tracing the regression to the OS change and shipping a hotfix.</li>
+                <li>Led migration of all program test software from LabVIEW 2016 to 2021 across 4 test stations and 8 software packages in under 3 months.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card glow-card">
+              <div class="tl-head">
+                <h3>Test Engineering Intern</h3>
+                <span class="tl-co">SRCTec · North Syracuse, NY</span>
+                <span class="tl-date">Jun 2024 – Aug 2024</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Cut manual effort ~40% by automating radar test delay-line and RF-switch settings with Python over HTTPS.</li>
+                <li>Resolved 15 issues across multiple libraries and upgraded Python 2.7 to 3.10, clearing backlog and improving testing speed ~25%.</li>
+                <li>Migrated radar calibration software from Linux to Windows Server, improving performance and compatibility.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item tl-feature" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card glow-card">
+              <div class="tl-head">
+                <h3>Software Engineering Co-op <span class="tl-flag">Full-stack</span></h3>
+                <span class="tl-co">Saab Inc. · East Syracuse, NY</span>
+                <span class="tl-date">Jan 2023 – Aug 2023</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Launched an Air Situation Display (ASD) feature letting users view all aircraft within a radius on click, replacing a top-aircraft-only view.</li>
+                <li>Worked with the FAA to track objects via an Angular front end and Java back end, integrating the SysMon module into the Cooperative Surveillance System (CSS) through front-end/back-end API integration.</li>
+                <li>Improved data accuracy ~20% by building filtering for low-quality ADS-B and MLAT data.</li>
+                <li>Optimized PostgreSQL queries for ~2x faster data retrieval; delivered in an Agile/Scrum team.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+
+        <div class="edu-card glow-card" data-reveal>
+          <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+          <div>
+            <h3>B.S. in Software Engineering</h3>
+            <span class="tl-co">Rochester Institute of Technology (RIT) · Rochester, NY</span>
+          </div>
+          <span class="tl-date">Aug 2021 – May 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects" class="section" aria-labelledby="proj-title">
+      <div class="container">
+        <p class="kicker" data-reveal>Selected Work</p>
+        <h2 id="proj-title" class="section-title" data-reveal>Projects</h2>
+        <div class="work-grid">
+          <article class="work-card" data-reveal>
+            <div class="work-media">
+              <img src="assets/img/spog.jpeg" alt="Single Pane of Glass multi-cloud monitoring dashboard" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="work-tags"><span>React</span><span>TypeScript</span><span>Material UI</span><span>Express</span><span>MongoDB</span></div>
+              <h3>Single Pane of Glass (SPOG)</h3>
+              <p class="work-sub">Honeywell-sponsored RIT senior capstone</p>
+              <p>A multi-cloud (AWS/Azure/GCP) monitoring platform built by a 5-person team over a full year. Built the React front end, helped migrate JS → TypeScript with Material UI, and implemented login/auth + role-based access (the "Persona" model) in a TypeScript/Express service.</p>
+              <a class="work-link" href="https://the-nimbus-navigators.github.io/senior-project-website/" target="_blank" rel="noopener noreferrer">View project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="work-card" data-reveal>
+            <div class="work-media">
+              <img src="assets/img/trivial-trivia.jpg" alt="Trivial-Trivia quiz platform" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="work-tags"><span>Web App</span><span>Azure</span><span>Quiz Engine</span></div>
+              <h3>Trivial-Trivia</h3>
+              <p class="work-sub">Interactive trivia platform</p>
+              <p>A platform dedicated to providing fun, engaging trivia questions and quizzes for enthusiasts of all ages, deployed on Azure.</p>
+              <a class="work-link" href="https://trivialtrivia.azurewebsites.net/" target="_blank" rel="noopener noreferrer">Live site <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="work-card" data-reveal>
+            <div class="work-media">
+              <img src="assets/img/footware.jpg" alt="FootWare e-commerce store" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="work-tags"><span>E-Commerce</span><span>Full-Stack</span></div>
+              <h3>FootWare</h3>
+              <p class="work-sub">Online footwear store</p>
+              <p>An online store for stylish, high-quality footwear — a curated catalog from trendy sneakers to elegant heels with a seamless, user-friendly shopping experience.</p>
+              <a class="work-link" href="https://github.com/Powan55/FootWare" target="_blank" rel="noopener noreferrer">View code <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="center-cta" data-reveal>
+          <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">See more on GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section section-alt" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-left" data-reveal>
+          <p class="kicker">Contact</p>
+          <h2 id="contact-title" class="section-title">Let's build something.</h2>
+          <p class="contact-lead">Open to mid-level Software Engineer and SDET roles — remote-first, open to onsite in the Syracuse, NY area. Drop a message and I'll get back to you.</p>
+          <ul class="contact-list">
+            <li><i class="fa-regular fa-envelope" aria-hidden="true"></i> <a href="mailto:laxmipoudel311@gmail.com">laxmipoudel311@gmail.com</a></li>
+            <li><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+13153806241">(315) 380-6241</a></li>
+            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Liverpool, NY (Syracuse area)</li>
+          </ul>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="assets/resume/Laxmi-Poudel-Resume.pdf" download aria-label="Download résumé"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-right" data-reveal>
+          <form name="submit-to-google-sheet" novalidate>
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" type="text" name="Name" placeholder="Your name" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" type="email" name="Email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" name="Message" rows="5" placeholder="What can I help with?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            <span id="msg" role="status" aria-live="polite"></span>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>&copy; <span id="year"></span> Laxmi Poudel</span>
+      <div class="footer-socials">
+        <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="mailto:laxmipoudel311@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+      </div>
+      <span class="footer-built">Built with HTML, CSS &amp; vanilla JS.</span>
     </div>
+  </footer>
 
+  <button id="to-top" class="to-top" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
 
-
-
-    <script>
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
-
-        function opentab(tabname){
-            for(tablink of tablinks){
-                tablink.classList.remove("active-link")
-            }
-            for(tabcontent of tabcontents){
-                tabcontent.classList.remove("active-tab")
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-        }
-
-    </script>
-
-    <script>
-        var sidemeu = document.getElementById("sidemenu");
-
-        function openmenu(){
-            sidemeu.style.right = "0";
-        }
-        function closemenu(){
-            sidemeu.style.right = "-200px";
-        }
-    </script>
-
-    <form name="submit-to-google-sheet">
-        <input name="email" type="email" placeholder="Email" required>
-        <button type="submit">Send</button>
-    </form>
-    
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzjlwJ2xRaJ1GmnVu3ViGAOoypEwBl6CH7ifqh6d-ootjngSyWye5yEQWSnf1L-CxP2Lg/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msg = document.getElementById("msg")
-
-        form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msg.innerHTML = "Message sent successfully"
-                setTimeout(function(){
-                    msg.innerHTML = ""
-                },5000)
-                form.reset()
-            })
-            .catch(error => console.error('Error!', error.message))
-        })
-    </script>
-
+  <script src="js/main.js" defer></script>
 </body>
 </html>
