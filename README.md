@@ -1,15 +1,15 @@
-# Laxmi Poudel — Personal Portfolio
+# Laxmi Poudel - Personal Portfolio
 
 Source for my personal portfolio site, live at **https://powan55.github.io/**.
 
 Software engineer (B.S. Software Engineering, RIT) building full-stack features
-(Java/Spring · Angular · PostgreSQL) and production test automation
-(LabVIEW · TestStand · Python).
+(Java/Spring, Angular, PostgreSQL) and production test automation
+(LabVIEW, TestStand, Python).
 
 ## Stack
 
-Buildless and dependency-free — plain **HTML, CSS, and vanilla JavaScript**.
-No framework, no build step; deployed directly via GitHub Pages from `main`.
+Plain **HTML, CSS, and vanilla JavaScript**. No framework and no build step.
+Deployed directly via GitHub Pages from `main`.
 
 ```
 index.html        # single-page site
