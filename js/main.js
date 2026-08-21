@@ -136,6 +136,7 @@
       "full-stack software.",
       "the test automation behind it.",
       "with Java, Spring & Angular.",
+      "and the tests that prove it.",
       "and root-cause the hard bugs.",
     ];
     if (prefersReduced) {

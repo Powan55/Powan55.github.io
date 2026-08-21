@@ -3,8 +3,8 @@
 Source for my personal portfolio site, live at **https://powan55.github.io/**.
 
 Software engineer (B.S. Software Engineering, RIT) building full-stack features
-(Java/Spring, Angular, PostgreSQL) and production test automation
-(LabVIEW, TestStand, Python).
+(Java/Spring, Angular, React/TypeScript, PostgreSQL) and the test automation behind
+them (JUnit, Selenium, Playwright, LabVIEW/TestStand).
 
 ## Stack
 
