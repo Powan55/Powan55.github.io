@@ -1,5 +1,5 @@
 /* =========================================================
-   Laxmi Poudel — Portfolio interactions (vanilla JS, no deps)
+   Laxmi Poudel portfolio interactions (vanilla JS, no deps)
    ========================================================= */
 (function () {
   "use strict";
@@ -200,7 +200,7 @@
         })
         .catch((error) => {
           console.error("Error!", error.message);
-          if (msg) { msg.className = "error"; msg.textContent = "Something went wrong — email me directly at laxmipoudel311@gmail.com."; }
+          if (msg) { msg.className = "error"; msg.textContent = "Something went wrong. Email me directly at laxmipoudel311@gmail.com."; }
         })
         .finally(() => {
           if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = original; }

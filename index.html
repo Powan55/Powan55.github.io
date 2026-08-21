@@ -188,7 +188,7 @@
           <article class="card glow-card" data-reveal>
             <div class="card-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
             <h3>Test Automation &amp; SDET</h3>
-            <p>Automated test software in LabVIEW, TestStand, and Python for a high-volume radar production program supporting ~10 test stations against FY27 demand of 200+ units &mdash; plus <strong>JUnit, Selenium, Playwright and Vitest</strong> suites on the software side.</p>
+            <p>Automated test software in LabVIEW, TestStand, and Python for a high-volume radar production program supporting ~10 test stations against FY27 demand of 200+ units. On the software side, <strong>JUnit, Selenium, Playwright and Vitest</strong>.</p>
           </article>
           <article class="card glow-card" data-reveal>
             <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div>
@@ -317,13 +317,13 @@
       <div class="container">
         <p class="kicker" data-reveal>Selected Work</p>
         <h2 id="proj-title" class="section-title" data-reveal>Projects</h2>
-        <p class="section-lead" data-reveal>Three builds, written the way I'd talk through them in a review: what was broken, what I built, and how I know it worked.</p>
+        <p class="section-lead" data-reveal>Written the way I'd walk through them in a review: what was broken, what I built, and how I know it worked.</p>
 
         <div class="work-grid">
           <!-- Featured -->
           <article class="work-card work-card--featured glow-card" data-reveal>
             <div class="work-media">
-              <img src="assets/img/trip-planner.jpg" alt="Trip Planner landing page: &quot;Every day of the trip, in one place.&quot;" width="1600" height="686" loading="lazy" />
+              <img src="assets/img/trip-planner.jpg" alt="Trip Planner on mobile: the map view, the day-by-day itinerary, and the shared expense log" width="1600" height="686" loading="lazy" />
             </div>
             <div class="work-body">
               <div class="work-tags">
@@ -335,7 +335,7 @@
               <div class="case-cols">
                 <div class="case-block">
                   <p class="case-label">Problem</p>
-                  <p>A 32-day, two-country trip lived across notes, spreadsheets, screenshots and a maps app. Worse, the one place you actually need all of it &mdash; standing on a street in Kathmandu with no signal &mdash; is the one place none of it works.</p>
+                  <p>Planning a 32-day trip across Nepal and Japan meant a pile of notes, spreadsheets, screenshots and pins in a maps app. None of it works on a phone in Kathmandu with no signal, which is exactly when you need it.</p>
 
                   <p class="case-label">Evidence it works</p>
                   <ul class="evidence-chips">
@@ -350,9 +350,9 @@
                 <div class="case-block">
                   <p class="case-label">Engineering</p>
                   <ul class="case-list">
-                    <li><strong>Offline-first, not offline-ish.</strong> Static-export Next.js PWA with a hand-rolled service worker that precaches the app shell. A new build surfaces as a &ldquo;new version available&rdquo; toast instead of silently reloading the page mid-use.</li>
-                    <li><strong>The device owns the data.</strong> <code>localStorage</code> plus IndexedDB for photos is the source of truth; the Firestore sync layer stays completely inert unless a web config is present, so the app runs with no backend at all.</li>
-                    <li><strong>Releases cannot drift.</strong> CI runs a repo-hygiene job and a version gate that refuses to publish when the current version was already tagged, then deploys the Firestore security rules from the same tree it just built.</li>
+                    <li>Static-export Next.js PWA with a hand-rolled service worker that precaches the app shell, so it installs to a home screen and keeps working with no connection. New builds show a "new version available" toast instead of reloading the page under you.</li>
+                    <li>The device holds the data: <code>localStorage</code> for plans, IndexedDB for photos. The Firestore sync layer stays inert unless a web config is present, so the app runs with no backend at all.</li>
+                    <li>CI gates the release. A hygiene job and a version gate that refuses to publish when the current version was already tagged, plus the Firestore security rules deployed from the same tree the build came from.</li>
                   </ul>
                 </div>
               </div>
@@ -374,17 +374,17 @@
                 <span>React</span><span>TypeScript</span><span>Material UI</span><span>Express</span><span>MongoDB</span><span>Grafana</span>
               </div>
               <h3>Single Pane of Glass</h3>
-              <p class="work-sub">RIT senior capstone &middot; sponsored by LenelS2 (Honeywell) &middot; team of 5 &middot; Aug 2024 &ndash; May 2025</p>
+              <p class="work-sub">RIT senior capstone &middot; sponsored by LenelS2 (Honeywell) &middot; team of 5 &middot; Aug 2024 - May 2025</p>
 
               <div class="case-block">
                 <p class="case-label">Problem</p>
-                <p>Cost, performance and alerting data for AWS, Azure and GCP lived in three separate consoles. The sponsor's internal React dashboard meant to unify them had drifted into something hard to change, with no real access control behind it.</p>
+                <p>Cost, performance and alerting data for AWS, Azure and GCP lived in three separate consoles. The sponsor's internal React dashboard that was supposed to unify them had gotten hard to change, and it had no real access control behind it.</p>
               </div>
               <div class="case-block">
                 <p class="case-label">Engineering</p>
                 <ul class="case-list">
-                  <li>Migrated the front end from JavaScript to TypeScript and standardized on Material UI, so component contracts break at compile time instead of during a sponsor demo.</li>
-                  <li>Built login, user creation and the &ldquo;Persona&rdquo; role-based privilege model in the TypeScript/Express people service (REST + MongoDB).</li>
+                  <li>Migrated the front end from JavaScript to TypeScript and standardized on Material UI, so bad props fail at compile time instead of in a sponsor demo.</li>
+                  <li>Built login, user creation and the "Persona" role-based privilege model in the TypeScript/Express people service (REST + MongoDB).</li>
                   <li>Rendered multi-cloud metrics and logs through Grafana chart components inside the React shell.</li>
                 </ul>
               </div>
@@ -401,6 +401,7 @@
 
               <div class="work-links">
                 <a class="work-link" href="https://the-nimbus-navigators.github.io/senior-project-website/" target="_blank" rel="noopener noreferrer">Project site <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <span class="work-note">Code is private, owned by the sponsor</span>
               </div>
             </div>
           </article>
@@ -440,7 +441,7 @@
 
               <div class="case-block">
                 <p class="case-label">Problem</p>
-                <p>We wanted a trivia game with real accounts and scores that survive a refresh &mdash; not another stateless quiz page that forgets who you are the moment you close the tab.</p>
+                <p>We wanted a trivia game where accounts and scores stick around. Every quiz page we had built before forgot the player the moment the tab closed.</p>
               </div>
               <div class="case-block">
                 <p class="case-label">Engineering</p>
