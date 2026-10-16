@@ -34,6 +34,9 @@
   --chip-success-text: #34d399;
   --on-accent: #04121f;
   --danger: #f87171;
+  --frame-bg: radial-gradient(ellipse at 50% 0%, #1b2440 0%, #0a0e1a 70%);
+  --frame-flat: #0a0e1a;
+  --frame-line: #283248;
 
   --font-head: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
@@ -62,6 +65,9 @@ html[data-theme="light"] {
   --accent: #0369a1;
   --on-accent: #ffffff;
   --danger: #b91c1c;
+  --frame-bg: var(--bg-elev-2);
+  --frame-flat: var(--bg-elev-2);
+  --frame-line: var(--border);
   --accent-glow: rgba(3, 105, 161, 0.18);
   --success: #047857;
   /* darker than --accent / --success: chip text sits on a tinted background */
@@ -351,16 +357,16 @@ html:not(.js) .contact-grid { grid-template-columns: 1fr; }
   aspect-ratio: auto; height: clamp(260px, 36vw, 360px);
   display: flex; justify-content: center; align-items: flex-start; gap: clamp(10px, 2vw, 22px);
   padding: 24px 24px 0;
-  background: radial-gradient(ellipse at 50% 0%, #1b2440 0%, #0a0e1a 70%);
+  background: var(--frame-bg);
 }
 .work-media--shots img {
   width: min(220px, 30%); height: auto; flex: none;
-  border: 1px solid #283248; border-bottom: 0; border-radius: 18px 18px 0 0;
+  border: 1px solid var(--frame-line); border-bottom: 0; border-radius: 18px 18px 0 0;
 }
 .work-card:hover .work-media--shots img { transform: none; }
 
 .work-card .work-media--frame {
-  aspect-ratio: auto; display: grid; place-items: center; background: #0a0e1a;
+  aspect-ratio: auto; display: grid; place-items: center; background: var(--frame-flat);
 }
 .work-media--frame img {
   height: auto; object-fit: contain;
