@@ -217,7 +217,7 @@
                   <p class="case-label">How it works</p>
                   <ul class="case-list" role="list">
                     <li>Static export on GitHub Pages. A hand-rolled service worker precaches the app shell, so it installs to a home screen and runs offline.</li>
-                    <li>Runs local-first, with plans in <code>localStorage</code>. Firestore sync is optional and off unless configured. The live app sits behind a sign-in, so the screenshots use sample data.</li>
+                    <li>Runs local-first, with plans in <code>localStorage</code>. Firestore sync is optional in the code. The deployed app uses it and requires sign-in, so the screenshots use sample data.</li>
                     <li>A MapLibre map shows each day's stops and the route between them.</li>
                     <li>CI on every PR: typecheck, ESLint with zero warnings, Vitest, a production build, byte budgets, a Firestore rules check, and Playwright end-to-end and visual jobs. A release gate blocks a deploy without a version bump, and a smoke test checks the live site afterward.</li>
                   </ul>
