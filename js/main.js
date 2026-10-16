@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  // tells the inline head script that this file loaded
+  window.__ready = true;
+  document.documentElement.classList.add("js");
+
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const onMedia = (mq, fn) => (mq.addEventListener ? mq.addEventListener("change", fn) : mq.addListener(fn));
 
@@ -111,7 +115,7 @@
             const id = entry.target.getAttribute("id");
             navLinks.forEach((a) => a.removeAttribute("aria-current"));
             const current = navLinks.find((a) => a.getAttribute("href") === "#" + id);
-            if (current) current.setAttribute("aria-current", "page");
+            if (current) current.setAttribute("aria-current", "true");
           }
         });
       },
@@ -122,9 +126,26 @@
 
   const toTop = document.getElementById("to-top");
   if (toTop) {
-    const onScrollTop = () => toTop.classList.toggle("show", window.scrollY > 600);
-    onScrollTop();
-    window.addEventListener("scroll", onScrollTop, { passive: true });
+    // On narrow screens it only appears while scrolling up, then hides again, so it never sits on top of text being read.
+    const narrow = window.matchMedia("(max-width: 720px)");
+    const footer = document.querySelector(".site-footer");
+    let atEnd = false, lastY = window.scrollY, idle;
+    const update = () => {
+      const y = window.scrollY, up = y < lastY;
+      lastY = y;
+      clearTimeout(idle);
+      const show = y > 600 && !atEnd && (!narrow.matches || up);
+      toTop.classList.toggle("show", show);
+      if (show && narrow.matches) idle = setTimeout(() => toTop.classList.remove("show"), 2500);
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    if (footer && "IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        atEnd = entries[0].isIntersecting;
+        update();
+      }).observe(footer);
+    }
+    update();
     toTop.addEventListener("click", () =>
       window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" })
     );
@@ -164,6 +185,7 @@
   const msg = document.getElementById("msg");
   function say(text, isError, withMail) {
     msg.className = isError ? "error" : "";
+    msg.setAttribute("role", isError ? "alert" : "status");
     msg.textContent = text;
     if (withMail) {
       const a = document.createElement("a");
