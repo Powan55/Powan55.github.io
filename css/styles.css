@@ -259,6 +259,8 @@ html[data-theme="light"] .hero-title .accent-text { color: #075985; }
 .hero-socials a { display: grid; place-items: center; width: 44px; height: 44px; }
 .hero-socials a { transition: color .2s ease, transform .2s ease; }
 .hero-socials a:hover { color: var(--accent); transform: translateY(-3px); }
+.hero-socials a.hero-email { width: auto; display: inline-flex; gap: 8px; padding-inline: 10px; font-size: .95rem; color: var(--text); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 4px; }
+.hero-socials a.hero-email:hover { text-decoration-color: currentColor; }
 
 .section { padding-block: clamp(4rem, 10vw, 7rem); }
 .section-alt { background: var(--bg-elev); border-block: 1px solid var(--border); }
