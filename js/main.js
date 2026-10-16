@@ -1,23 +1,47 @@
-/* =========================================================
-   Laxmi Poudel portfolio interactions (vanilla JS, no deps)
-   ========================================================= */
 (function () {
   "use strict";
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isTouch = window.matchMedia("(hover: none)").matches;
 
-  /* ---------- Footer year ---------- */
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  };
+
+  // Reveal runs first so a failure further down can never leave content hidden.
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  if (prefersReduced || !("IntersectionObserver" in window)) {
+    revealEls.forEach((el) => el.classList.add("in-view"));
+  } else {
+    const revObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    revealEls.forEach((el) => {
+      const sibs = Array.from(el.parentElement.querySelectorAll(":scope > [data-reveal]"));
+      const i = sibs.indexOf(el);
+      if (i > 0) el.style.setProperty("--d", Math.min(i * 70, 350) + "ms");
+      revObserver.observe(el);
+    });
+  }
+
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Sticky header shadow ---------- */
   const header = document.getElementById("site-header");
-  const onScrollHeader = () => header.classList.toggle("scrolled", window.scrollY > 40);
-  onScrollHeader();
-  window.addEventListener("scroll", onScrollHeader, { passive: true });
+  if (header) {
+    const onScrollHeader = () => header.classList.toggle("scrolled", window.scrollY > 40);
+    onScrollHeader();
+    window.addEventListener("scroll", onScrollHeader, { passive: true });
+  }
 
-  /* ---------- Mobile nav ---------- */
   const navToggle = document.getElementById("nav-toggle");
   const nav = document.getElementById("primary-nav");
   const burgerIcon = navToggle ? navToggle.querySelector("i") : null;
@@ -29,85 +53,50 @@
     if (burgerIcon) burgerIcon.className = open ? "fa-solid fa-xmark" : "fa-solid fa-bars";
   }
   if (navToggle && nav) {
-    navToggle.addEventListener("click", () =>
-      setNav(!document.body.classList.contains("nav-open"))
-    );
+    const isOpen = () => document.body.classList.contains("nav-open");
+    navToggle.addEventListener("click", () => setNav(!isOpen()));
     nav.addEventListener("click", (e) => {
       if (e.target.closest("a")) setNav(false);
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && document.body.classList.contains("nav-open")) {
+      if (e.key === "Escape" && isOpen()) {
         setNav(false);
         navToggle.focus();
       }
     });
+    // the dim backdrop is body::after, so a tap on it lands on body
     document.addEventListener("click", (e) => {
-      if (
-        document.body.classList.contains("nav-open") &&
-        !nav.contains(e.target) &&
-        !navToggle.contains(e.target)
-      ) {
-        setNav(false);
-      }
+      if (isOpen() && !nav.contains(e.target) && !navToggle.contains(e.target)) setNav(false);
+    });
+    window.matchMedia("(min-width: 901px)").addEventListener("change", (e) => {
+      if (e.matches) setNav(false);
     });
   }
 
-  /* ---------- Theme toggle ---------- */
   const themeToggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
-  const stored = localStorage.getItem("theme");
-  const initial =
-    stored ||
-    (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-  applyTheme(initial);
 
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
     if (themeToggle) {
-      const icon = themeToggle.querySelector("i");
       const dark = theme === "dark";
+      const icon = themeToggle.querySelector("i");
       if (icon) icon.className = dark ? "fa-solid fa-moon" : "fa-solid fa-sun";
-      themeToggle.setAttribute(
-        "aria-label",
-        dark ? "Switch to light theme" : "Switch to dark theme"
-      );
+      themeToggle.setAttribute("aria-pressed", String(dark));
     }
   }
+  applyTheme(
+    store.get("theme") ||
+      (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+  );
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
       const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(next);
-      localStorage.setItem("theme", next);
+      store.set("theme", next);
     });
   }
 
-  /* ---------- Scroll reveal ---------- */
-  const revealEls = document.querySelectorAll("[data-reveal]");
-  if (prefersReduced || !("IntersectionObserver" in window)) {
-    revealEls.forEach((el) => el.classList.add("in-view"));
-  } else {
-    const revObserver = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.transitionDelay = "";
-            entry.target.classList.add("in-view");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-    );
-    // Stagger siblings sharing a parent for a nicer cascade
-    revealEls.forEach((el) => {
-      const sibs = Array.from(el.parentElement.querySelectorAll(":scope > [data-reveal]"));
-      const i = sibs.indexOf(el);
-      if (i > 0) el.style.transitionDelay = Math.min(i * 70, 350) + "ms";
-      revObserver.observe(el);
-    });
-  }
-
-  /* ---------- Scroll spy ---------- */
   const sections = document.querySelectorAll("main section[id]");
   const navLinks = Array.from(document.querySelectorAll(".nav-list a"));
   if ("IntersectionObserver" in window && sections.length) {
@@ -127,18 +116,6 @@
     sections.forEach((s) => spy.observe(s));
   }
 
-  /* ---------- Cursor-tracked card glow ---------- */
-  if (!isTouch && !prefersReduced) {
-    document.querySelectorAll(".glow-card").forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty("--mx", e.clientX - rect.left + "px");
-        card.style.setProperty("--my", e.clientY - rect.top + "px");
-      });
-    });
-  }
-
-  /* ---------- Back to top ---------- */
   const toTop = document.getElementById("to-top");
   if (toTop) {
     const onScrollTop = () => toTop.classList.toggle("show", window.scrollY > 600);
@@ -149,11 +126,27 @@
     );
   }
 
-  /* ---------- Contact form → Google Apps Script (preserved endpoint) ---------- */
+  const copyBtn = document.getElementById("copy-email");
+  if (copyBtn && navigator.clipboard) {
+    const label = copyBtn.textContent;
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(copyBtn.dataset.email).then(
+        () => {
+          copyBtn.textContent = "Copied";
+          setTimeout(() => { copyBtn.textContent = label; }, 2000);
+        },
+        () => {}
+      );
+    });
+  } else if (copyBtn) {
+    copyBtn.hidden = true;
+  }
+
   const scriptURL =
     "https://script.google.com/macros/s/AKfycbzjlwJ2xRaJ1GmnVu3ViGAOoypEwBl6CH7ifqh6d-ootjngSyWye5yEQWSnf1L-CxP2Lg/exec";
-  const form = document.forms["submit-to-google-sheet"];
+  const form = document.forms["contact"];
   const msg = document.getElementById("msg");
+  const fallback = "Email me at laxmipoudel311@gmail.com.";
   if (form) {
     const submitBtn = form.querySelector('button[type="submit"]');
     form.addEventListener("submit", (e) => {
@@ -161,23 +154,27 @@
       const honeypot = form.elements["_hp"];
       if (honeypot && honeypot.value) { form.reset(); return; }
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      const original = submitBtn ? submitBtn.textContent : "";
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
-      if (msg) { msg.className = ""; msg.textContent = ""; }
+      const original = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      msg.className = "";
+      msg.textContent = "";
 
-      // Apps Script replies with a cross-origin redirect the page can't read, so a
-      // resolved promise is not proof of delivery. Send it opaque and say only what we know.
-      fetch(scriptURL, { method: "POST", mode: "no-cors", body: new FormData(form) })
-        .then(() => {
-          if (msg) { msg.className = ""; msg.textContent = "Sent. If you don't hear back within a day, email me at laxmipoudel311@gmail.com."; }
+      fetch(scriptURL, { method: "POST", body: new FormData(form) })
+        .then((r) => {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          msg.textContent = "Thanks, your message was sent.";
           form.reset();
-          setTimeout(() => { if (msg) msg.textContent = ""; }, 12000);
+          setTimeout(() => { msg.textContent = ""; }, 12000);
         })
-        .catch(() => {
-          if (msg) { msg.className = "error"; msg.textContent = "That didn't go through. Email me at laxmipoudel311@gmail.com."; }
+        .catch((err) => {
+          console.error("Contact form failed:", err);
+          msg.className = "error";
+          msg.textContent = "That didn't go through. " + fallback;
         })
         .finally(() => {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = original; }
+          submitBtn.disabled = false;
+          submitBtn.textContent = original;
         });
     });
   }

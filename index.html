@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Set JS flag + theme before paint (no FOUC, content stays visible if JS fails) -->
+  <!-- the js class only gates the below-the-fold reveal; no JS means everything shows -->
   <script>
     (function () {
       var d = document.documentElement;
@@ -97,7 +97,7 @@
       </nav>
 
       <div class="nav-actions">
-        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch to light theme" title="Toggle theme">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Dark theme" aria-pressed="true" title="Toggle theme">
           <i class="fa-solid fa-moon" aria-hidden="true"></i>
         </button>
         <button id="nav-toggle" class="icon-btn nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
@@ -116,24 +116,24 @@
         <span class="blob blob-3"></span>
       </div>
       <div class="container hero-inner">
-        <p class="eyebrow eyebrow--open" data-reveal>
+        <p class="eyebrow eyebrow--open">
           <span class="status-dot" aria-hidden="true"></span> Open to Software Engineer (Level&nbsp;2+) &amp; SDET roles
         </p>
-        <h1 class="hero-title" data-reveal><span class="grad-text">Laxmi&nbsp;Poudel</span></h1>
-        <p class="hero-role" data-reveal>
+        <h1 class="hero-title"><span class="grad-text">Laxmi&nbsp;Poudel</span></h1>
+        <p class="hero-role">
           Software engineer who ships full-stack features and the test automation behind them.
         </p>
-        <ul class="hero-facts" data-reveal>
+        <ul class="hero-facts">
           <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Remote-first, or onsite Syracuse,&nbsp;NY</li>
           <li><i class="fa-solid fa-id-badge" aria-hidden="true"></i> U.S. Citizen · clearance-eligible</li>
           <li><i class="fa-regular fa-clock" aria-hidden="true"></i> Available with two weeks&rsquo; notice</li>
         </ul>
-        <p class="hero-lead" data-reveal>
+        <p class="hero-lead">
           I built features for an <strong>FAA air-traffic surveillance system</strong> on Java/Spring&nbsp;+&nbsp;Angular&nbsp;+&nbsp;PostgreSQL,
           and now build the <strong>automated test software</strong> for a high-volume radar production line.
         </p>
 
-        <ul class="stat-chips" data-reveal>
+        <ul class="stat-chips">
           <li><span class="stat-num">2x</span> faster DB queries</li>
           <li><span class="stat-num">~20%</span> better data accuracy</li>
           <li><span class="stat-num">0&nbsp;to&nbsp;100%</span> first-time pass rate</li>
@@ -141,7 +141,7 @@
           <li><span class="stat-num">B.S.</span> Software Engineering, RIT</li>
         </ul>
 
-        <div class="hero-cta" data-reveal>
+        <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">View My Work</a>
           <a href="assets/resume/Laxmi-Poudel-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
             <i class="fa-regular fa-file-lines" aria-hidden="true"></i> View R&eacute;sum&eacute;
@@ -150,7 +150,7 @@
           <span class="cta-note">PDF &middot; opens in a new tab &middot; updated Aug 2026</span>
         </div>
 
-        <div class="hero-socials" data-reveal>
+        <div class="hero-socials">
           <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
           <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
           <a href="mailto:laxmipoudel311@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
@@ -269,7 +269,7 @@
       <div class="container">
         <p class="kicker" data-reveal>Career</p>
         <h2 id="exp-title" class="section-title" data-reveal>Experience</h2>
-        <ol class="timeline">
+        <ol class="timeline" role="list">
           <li class="tl-item" data-reveal>
             <div class="tl-dot" aria-hidden="true"></div>
             <div class="tl-card glow-card">
@@ -532,23 +532,25 @@
       <div class="container contact-grid">
         <div class="contact-left" data-reveal>
           <p class="kicker">Contact</p>
-          <h2 id="contact-title" class="section-title">Let's build something.</h2>
-          <p class="contact-lead">Open to mid-level Software Engineer and SDET roles, remote-first, open to onsite in the Syracuse, NY area. Available with two weeks&rsquo; notice &mdash; email is the fastest way to reach me.</p>
+          <h2 id="contact-title" class="section-title">Get in touch</h2>
+          <p class="contact-lead">Open to mid-level Software Engineer and SDET roles, remote-first, open to onsite in the Syracuse, NY area. Available with two weeks&rsquo; notice. Email is the fastest way to reach me.</p>
+          <div class="contact-email">
+            <a class="btn btn-primary" href="mailto:laxmipoudel311@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i> laxmipoudel311@gmail.com</a>
+            <button type="button" id="copy-email" class="btn btn-ghost" data-email="laxmipoudel311@gmail.com">Copy address</button>
+          </div>
           <ul class="contact-list">
-            <li><i class="fa-regular fa-envelope" aria-hidden="true"></i> <a href="mailto:laxmipoudel311@gmail.com">laxmipoudel311@gmail.com</a></li>
-            <li><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+13153806241">(315) 380-6241</a></li>
             <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Liverpool, NY (Syracuse area)</li>
           </ul>
           <div class="contact-socials">
             <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
             <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-            <a href="assets/resume/Laxmi-Poudel-Resume.pdf" download aria-label="Download résumé"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></a>
+            <a class="social-text" href="assets/resume/Laxmi-Poudel-Resume.pdf" download><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Download r&eacute;sum&eacute;</a>
           </div>
         </div>
 
         <div class="contact-right" data-reveal>
-          <form name="submit-to-google-sheet" novalidate>
-            <p class="form-hint">Prefer email? <a href="mailto:laxmipoudel311@gmail.com">laxmipoudel311@gmail.com</a></p>
+          <form name="contact" novalidate>
+            <p class="form-hint">Or leave a message here. This form is optional.</p>
             <div class="field field--hp" aria-hidden="true">
               <label for="f-company">Company</label>
               <input id="f-company" type="text" name="_hp" tabindex="-1" autocomplete="off" />
@@ -563,7 +565,7 @@
             </div>
             <div class="field">
               <label for="f-message">Message</label>
-              <textarea id="f-message" name="Message" rows="5" placeholder="What can I help with?" required></textarea>
+              <textarea id="f-message" name="Message" rows="5" maxlength="2000" placeholder="What can I help with?" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Send Message</button>
             <span id="msg" role="status" aria-live="polite"></span>
