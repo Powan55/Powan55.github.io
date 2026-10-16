@@ -141,22 +141,22 @@
           </p>
           <h1 class="hero-title"><span class="accent-text">Laxmi&nbsp;Poudel</span></h1>
           <p class="hero-role">
-            Software engineer who ships full-stack features and the test automation behind them.
+            Software engineer in the Syracuse area. I write full-stack features and the automated tests for them.
           </p>
           <ul class="hero-facts" role="list">
             <li><svg class="i" aria-hidden="true"><use href="#i-map-pin"/></svg> Remote-first, or onsite Syracuse,&nbsp;NY</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-id-card"/></svg> U.S. Citizen &middot; clearance-eligible</li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> Available with two weeks&rsquo; notice</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> Available with two weeks' notice</li>
           </ul>
           <p class="hero-lead">
             I built features for an <strong>FAA air-traffic surveillance system</strong> on Java/Spring&nbsp;+&nbsp;Angular&nbsp;+&nbsp;PostgreSQL,
-            and now build the <strong>automated test software</strong> for a radar production line.
+            and now build the <strong>automated test software</strong> for a radar production program.
           </p>
 
           <ul class="stat-chips" role="list">
             <li><span class="stat-num">2x</span> faster DB queries</li>
             <li><span class="stat-num">~20%</span> better data accuracy</li>
-            <li><span class="stat-num">0&nbsp;to&nbsp;100%</span> first-time pass rate</li>
+            <li><span class="stat-num">0&nbsp;to&nbsp;100%</span> first-time pass on one FPGA step</li>
           </ul>
 
           <div class="hero-cta">
@@ -179,9 +179,7 @@
 
     <section id="projects" class="section" aria-labelledby="proj-title">
       <div class="container">
-        <p class="kicker" data-reveal>Selected Work</p>
         <h2 id="proj-title" class="section-title" data-reveal>Projects</h2>
-        <p class="section-lead" data-reveal>Each project says what I built, why, and what the tests cover.</p>
 
         <div class="work-grid">
           <article class="work-card work-card--featured glow-card" data-reveal>
@@ -215,7 +213,7 @@
                   <p class="case-label">How it works</p>
                   <ul class="case-list" role="list">
                     <li>Static export on GitHub Pages. A hand-rolled service worker precaches the app shell, so it installs to a home screen and runs offline.</li>
-                    <li>Plans live in <code>localStorage</code>. A Firestore mirror turns on only when a Firebase config exists, so the app needs no backend.</li>
+                    <li>Runs local-first, with plans in <code>localStorage</code>; an account is only needed for optional cross-device sync.</li>
                     <li>The map is MapLibre on OpenFreeMap tiles.</li>
                     <li>Every PR runs typecheck, ESLint with zero warnings, Vitest, a production build, byte budgets and a Firestore rules emulator check, plus Playwright end-to-end and visual jobs. A release gate blocks publishing without a new version, and a smoke test hits the live site after each deploy.</li>
                   </ul>
@@ -272,7 +270,7 @@
         </div>
 
         <h3 class="subhead" data-reveal>Other work</h3>
-        <div class="work-grid work-grid--mini">
+        <div class="work-grid">
           <article class="work-card work-card--mini glow-card" data-reveal>
             <div class="work-body">
               <div class="work-tags">
@@ -309,7 +307,6 @@
 
     <section id="experience" class="section section-alt" aria-labelledby="exp-title">
       <div class="container">
-        <p class="kicker" data-reveal>Career</p>
         <h2 id="exp-title" class="section-title" data-reveal>Experience</h2>
         <ol class="timeline" role="list">
           <li class="tl-item" data-reveal>
@@ -320,7 +317,6 @@
                 <span class="tl-co">SRCTec &middot; North Syracuse, NY</span>
                 <span class="tl-date">Aug 2025 - Present</span>
               </div>
-              <p class="tl-summary">Automated test software for a radar production program.</p>
               <ul class="tl-bullets" role="list">
                 <li>Build and maintain the automated test software for a radar production program in LabVIEW, TestStand, and Python; develop in-house test applications and integrate third-party packages to support the program's test stations.</li>
                 <li>Working on an initiative to raise first-time yield on a critical test station from <strong>below 50% toward an 80%+ target</strong> by identifying and eliminating false failures in the test software.</li>
@@ -339,7 +335,6 @@
                 <span class="tl-co">SRCTec &middot; North Syracuse, NY</span>
                 <span class="tl-date">Jun 2024 - Aug 2024</span>
               </div>
-              <p class="tl-summary">Automated radar test setup and moved the Python toolchain off 2.7.</p>
               <ul class="tl-bullets" role="list">
                 <li>Cut manual effort <strong>~40%</strong> by automating radar test delay-line and RF-switch settings with Python over HTTPS.</li>
                 <li>Resolved <strong>15 issues</strong> across multiple libraries and upgraded <strong>Python 2.7 to 3.10</strong>, clearing backlog and improving testing speed <strong>~25%</strong>.</li>
@@ -348,7 +343,7 @@
             </div>
           </li>
 
-          <li class="tl-item tl-feature" data-reveal>
+          <li class="tl-item" data-reveal>
             <div class="tl-dot" aria-hidden="true"></div>
             <div class="tl-card glow-card">
               <div class="tl-head">
@@ -356,10 +351,9 @@
                 <span class="tl-co">Saab Inc. &middot; East Syracuse, NY</span>
                 <span class="tl-date">Jan 2023 - Aug 2023</span>
               </div>
-              <p class="tl-summary">Features for an FAA air-traffic surveillance system on Java/Spring, Angular and PostgreSQL.</p>
               <ul class="tl-bullets" role="list">
                 <li>Launched an Air Situation Display (ASD) feature letting users view all aircraft within a radius on click, replacing a top-aircraft-only view.</li>
-                <li>Integrated the SysMon module into the Cooperative Surveillance System (CSS), connecting the Angular front end to the Java back end through APIs, with the FAA.</li>
+                <li>Worked with the FAA to integrate the SysMon module into the Cooperative Surveillance System (CSS), connecting the Angular front end to the Java back end through APIs.</li>
                 <li>Improved data accuracy <strong>~20%</strong> by building filtering for low-quality ADS-B and MLAT data.</li>
                 <li>Optimized PostgreSQL queries for <strong>~2x faster</strong> data retrieval; delivered in an Agile/Scrum team.</li>
               </ul>
@@ -380,7 +374,6 @@
 
     <section id="skills" class="section" aria-labelledby="skills-title">
       <div class="container">
-        <p class="kicker" data-reveal>Toolbox</p>
         <h2 id="skills-title" class="section-title" data-reveal>Skills &amp; Technologies</h2>
         <div class="skills-grid">
           <div class="skill-group" data-reveal>
@@ -420,10 +413,9 @@
     <section id="about" class="section section-alt" aria-labelledby="about-title">
       <div class="container">
         <div class="about-body" data-reveal>
-          <p class="kicker">About</p>
-          <h2 id="about-title" class="section-title">I write the feature <span class="accent-text">and</span> the tests for it.</h2>
+          <h2 id="about-title" class="section-title">About</h2>
           <p>
-            I'm Laxmi, a software engineer in the Syracuse area. I graduated from RIT in 2025 with a B.S. in Software Engineering.
+            I'm Laxmi. I graduated from RIT in 2025 with a B.S. in Software Engineering.
           </p>
           <p>
             At Saab I worked on an FAA air-traffic surveillance system. I built an Air Situation Display feature that shows every aircraft
@@ -435,8 +427,7 @@
             power cycle. On my own time I built a trip planner that works offline and has 570+ end-to-end tests.
           </p>
           <p>
-            I want a software engineer role where I'm back to building features on a full-stack team, remote if possible. I'm a U.S. citizen
-            and eligible for a security clearance.
+            I want a software engineer role where I'm back to building features on a full-stack team.
           </p>
         </div>
       </div>
@@ -444,10 +435,9 @@
 
     <section id="contact" class="section" aria-labelledby="contact-title">
       <div class="container contact-grid">
-        <div class="contact-left" data-reveal>
-          <p class="kicker">Contact</p>
+        <div data-reveal>
           <h2 id="contact-title" class="section-title">Get in touch</h2>
-          <p class="contact-lead">Open to software engineer and SDET roles, remote preferred, or onsite in the Syracuse, NY area. Available with two weeks&rsquo; notice. Email is the fastest way to reach me.</p>
+          <p class="contact-lead">Email is the fastest way to reach me.</p>
           <div class="contact-email">
             <a class="btn btn-primary" href="mailto:laxmipoudel311@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg> laxmipoudel311@gmail.com</a>
             <button type="button" id="copy-email" class="btn btn-ghost">Copy address</button>

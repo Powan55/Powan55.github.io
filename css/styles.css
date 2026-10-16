@@ -327,8 +327,6 @@ html:not(.js) .contact-grid { grid-template-columns: 1fr; }
 .work-link:hover { gap: 10px; }
 .center-cta { text-align: center; margin-top: var(--space-5); }
 
-.section-lead { color: var(--text-muted); max-width: 64ch; margin: calc(var(--space-5) * -1 + 4px) 0 var(--space-5); }
-
 .work-card--featured { grid-column: 1 / -1; position: relative; border-color: color-mix(in srgb, var(--accent) 32%, var(--border)); }
 .work-card--featured::after {
   content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
@@ -560,8 +558,6 @@ html:not(.js) .contact-grid { grid-template-columns: 1fr; }
 .hero-facts .i { color: var(--accent); }
 
 .cta-note { flex-basis: 100%; font-family: var(--font-mono); font-size: .875rem; color: var(--text-muted); }
-
-.tl-summary { color: var(--text); font-size: .95rem; font-weight: 500; margin-bottom: var(--space-3); }
 
 .form-hint { font-size: .875rem; color: var(--text-muted); }
 .field--hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
