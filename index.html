@@ -10,7 +10,7 @@
       var d = document.documentElement;
       d.classList.add("js");
       // main.js sets window.__ready first thing; if it never loads, drop the js class so nothing stays hidden
-      setTimeout(function () { if (!window.__ready) d.classList.remove("js"); }, 3000);
+      setTimeout(function () { if (!window.__ready) d.classList.remove("js"); }, 6000);
       try {
         var t = localStorage.getItem("theme") ||
           (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
