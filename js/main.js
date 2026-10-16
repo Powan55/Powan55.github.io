@@ -130,16 +130,28 @@
     );
   }
 
+  const email = "laxmipoudel311@gmail.com";
   const copyBtn = document.getElementById("copy-email");
+  const copyMsg = document.getElementById("copy-status");
   if (copyBtn && navigator.clipboard) {
-    const label = copyBtn.textContent;
     copyBtn.addEventListener("click", () => {
-      navigator.clipboard.writeText(copyBtn.dataset.email).then(
+      navigator.clipboard.writeText(email).then(
         () => {
-          copyBtn.textContent = "Copied";
-          setTimeout(() => { copyBtn.textContent = label; }, 2000);
+          copyMsg.textContent = "Copied";
+          setTimeout(() => { copyMsg.textContent = ""; }, 2500);
         },
-        () => {}
+        () => {
+          // clipboard blocked: show the address selected so Ctrl+C works
+          copyMsg.textContent = "Couldn't copy. Press Ctrl+C on: ";
+          const a = document.createElement("span");
+          a.textContent = email;
+          copyMsg.appendChild(a);
+          const range = document.createRange();
+          range.selectNodeContents(a);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
       );
     });
   } else if (copyBtn) {
@@ -150,31 +162,47 @@
     "https://script.google.com/macros/s/AKfycbzjlwJ2xRaJ1GmnVu3ViGAOoypEwBl6CH7ifqh6d-ootjngSyWye5yEQWSnf1L-CxP2Lg/exec";
   const form = document.forms["contact"];
   const msg = document.getElementById("msg");
-  const fallback = "Email me at laxmipoudel311@gmail.com.";
+  function say(text, isError, withMail) {
+    msg.className = isError ? "error" : "";
+    msg.textContent = text;
+    if (withMail) {
+      const a = document.createElement("a");
+      a.href = "mailto:" + email;
+      a.textContent = email;
+      msg.append(" Email me at ", a, ".");
+    }
+  }
   if (form) {
     const submitBtn = form.querySelector('button[type="submit"]');
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const honeypot = form.elements["_hp"];
       if (honeypot && honeypot.value) { form.reset(); return; }
+      const name = form.elements["Name"];
+      const message = form.elements["Message"];
+      name.value = name.value.trim();
+      message.value = message.value.trim();
+      if (!name.value || !message.value) {
+        say("Please enter your name and a message.", true);
+        (name.value ? message : name).focus();
+        return;
+      }
       if (!form.checkValidity()) { form.reportValidity(); return; }
       const original = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = "Sending...";
-      msg.className = "";
-      msg.textContent = "";
+      say("", false);
 
       fetch(scriptURL, { method: "POST", body: new FormData(form) })
         .then((r) => {
           if (!r.ok) throw new Error("HTTP " + r.status);
-          msg.textContent = "Thanks, your message was sent.";
+          say("Thanks, your message was sent.", false);
           form.reset();
           setTimeout(() => { msg.textContent = ""; }, 12000);
         })
         .catch((err) => {
           console.error("Contact form failed:", err);
-          msg.className = "error";
-          msg.textContent = "That didn't go through. " + fallback;
+          say("That didn't go through.", true, true);
         })
         .finally(() => {
           submitBtn.disabled = false;
