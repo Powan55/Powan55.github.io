@@ -267,7 +267,12 @@ html:not(.js) .contact-grid { grid-template-columns: 1fr; }
 .glow-card { position: relative; transition: translate .25s ease, box-shadow .25s ease, border-color .25s ease; }
 .glow-card:hover { translate: 0 -4px; border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); box-shadow: 0 16px 44px rgba(0,0,0,.4); }
 
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-4); }
+.skills-grid { display: grid; gap: var(--space-4); }
+@media (min-width: 640px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .skill-group:last-child { grid-column: span 2; }
+}
+@media (min-width: 1000px) { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
 .skill-group {
   background: var(--bg-elev); border: 1px solid var(--border);
   border-radius: var(--radius); padding: var(--space-4) var(--space-5);
