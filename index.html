@@ -84,7 +84,7 @@
       </a>
 
       <nav id="primary-nav" aria-label="Primary">
-        <ul class="nav-list">
+        <ul class="nav-list" role="list">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#strengths">What I Do</a></li>
@@ -107,85 +107,79 @@
     </div>
   </header>
 
-  <main id="main">
-    <!-- ===================== HERO ===================== -->
+  <main id="main" tabindex="-1">
     <section id="home" class="hero">
       <div class="aurora" aria-hidden="true">
         <span class="blob blob-1"></span>
         <span class="blob blob-2"></span>
-        <span class="blob blob-3"></span>
       </div>
       <div class="container hero-inner">
-        <p class="eyebrow eyebrow--open">
-          <span class="status-dot" aria-hidden="true"></span> Open to Software Engineer (Level&nbsp;2+) &amp; SDET roles
-        </p>
-        <h1 class="hero-title"><span class="grad-text">Laxmi&nbsp;Poudel</span></h1>
-        <p class="hero-role">
-          Software engineer who ships full-stack features and the test automation behind them.
-        </p>
-        <ul class="hero-facts">
-          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Remote-first, or onsite Syracuse,&nbsp;NY</li>
-          <li><i class="fa-solid fa-id-badge" aria-hidden="true"></i> U.S. Citizen · clearance-eligible</li>
-          <li><i class="fa-regular fa-clock" aria-hidden="true"></i> Available with two weeks&rsquo; notice</li>
-        </ul>
-        <p class="hero-lead">
-          I built features for an <strong>FAA air-traffic surveillance system</strong> on Java/Spring&nbsp;+&nbsp;Angular&nbsp;+&nbsp;PostgreSQL,
-          and now build the <strong>automated test software</strong> for a high-volume radar production line.
-        </p>
+        <img class="hero-photo" src="assets/img/headshot.jpg" alt="Laxmi Poudel" width="240" height="240" fetchpriority="high" />
+        <div class="hero-text">
+          <p class="eyebrow eyebrow--open">
+            <span class="status-dot" aria-hidden="true"></span> Open to Software Engineer and SDET roles
+          </p>
+          <h1 class="hero-title"><span class="accent-text">Laxmi&nbsp;Poudel</span></h1>
+          <p class="hero-role">
+            Software engineer who ships full-stack features and the test automation behind them.
+          </p>
+          <ul class="hero-facts" role="list">
+            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Remote-first, or onsite Syracuse,&nbsp;NY</li>
+            <li><i class="fa-solid fa-id-badge" aria-hidden="true"></i> U.S. Citizen &middot; clearance-eligible</li>
+            <li><i class="fa-regular fa-clock" aria-hidden="true"></i> Available with two weeks&rsquo; notice</li>
+          </ul>
+          <p class="hero-lead">
+            I built features for an <strong>FAA air-traffic surveillance system</strong> on Java/Spring&nbsp;+&nbsp;Angular&nbsp;+&nbsp;PostgreSQL,
+            and now build the <strong>automated test software</strong> for a radar production line.
+          </p>
 
-        <ul class="stat-chips">
-          <li><span class="stat-num">2x</span> faster DB queries</li>
-          <li><span class="stat-num">~20%</span> better data accuracy</li>
-          <li><span class="stat-num">0&nbsp;to&nbsp;100%</span> first-time pass rate</li>
-          <li><span class="stat-num">572</span> end-to-end tests shipped</li>
-          <li><span class="stat-num">B.S.</span> Software Engineering, RIT</li>
-        </ul>
+          <ul class="stat-chips" role="list">
+            <li><span class="stat-num">2x</span> faster DB queries</li>
+            <li><span class="stat-num">~20%</span> better data accuracy</li>
+            <li><span class="stat-num">0&nbsp;to&nbsp;100%</span> first-time pass rate</li>
+          </ul>
 
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="assets/resume/Laxmi-Poudel-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
-            <i class="fa-regular fa-file-lines" aria-hidden="true"></i> View R&eacute;sum&eacute;
-          </a>
-          <a href="#contact" class="btn btn-link">Get in Touch &rarr;</a>
-          <span class="cta-note">PDF &middot; opens in a new tab &middot; updated Aug 2026</span>
-        </div>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="assets/resume/Laxmi-Poudel-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
+              <i class="fa-regular fa-file-lines" aria-hidden="true"></i> View R&eacute;sum&eacute;
+            </a>
+            <a href="#contact" class="btn btn-link">Get in touch</a>
+            <span class="cta-note">PDF &middot; opens in a new tab &middot; updated Aug 2026</span>
+          </div>
 
-        <div class="hero-socials">
-          <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-          <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-          <a href="mailto:laxmipoudel311@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+          <div class="hero-socials">
+            <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="mailto:laxmipoudel311@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
-      <a href="#about" class="scroll-cue" aria-label="Scroll to About"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
     </section>
 
-    <!-- ===================== ABOUT ===================== -->
     <section id="about" class="section" aria-labelledby="about-title">
-      <div class="container about-grid">
-        <div class="about-photo" data-reveal>
-          <img src="assets/img/headshot.jpg" alt="Laxmi Poudel headshot" width="420" height="520" loading="lazy" />
-        </div>
-        <div class="about-body" data-reveal>
-          <p class="kicker">About</p>
-          <h2 id="about-title" class="section-title">A software engineer who ships <span class="grad-text">and</span> verifies.</h2>
-          <p>
-            I'm Laxmi Poudel, a software engineer based in the Syracuse, NY area with a
-            <strong>B.S. in Software Engineering from Rochester Institute of Technology (RIT)</strong>.
-            I build full-stack features end to end with REST/API integration and object-oriented design, including
-            customer-facing software for an FAA air-traffic surveillance system on a Java/Spring, Angular, and PostgreSQL stack.
-          </p>
-          <p>
-            Today I build and maintain the automated test software for a high-volume radar production program in
-            LabVIEW, TestStand, and Python, and I trace system- and board-level failures down to the fix. Having
-            <strong>built production features and owned the test automation behind them</strong>, I can debug problems
-            across the full stack.
-          </p>
-          <p class="about-target">
-            <i class="fa-solid fa-crosshairs" aria-hidden="true"></i>
-            Targeting mid-level (Level&nbsp;2+) Software Engineer roles; open to SDET / test-automation.
-            <span class="badge">U.S. Citizen · clearance-eligible</span>
-          </p>
-        </div>
+      <div class="container">
+      <div class="about-body" data-reveal>
+        <p class="kicker">About</p>
+        <h2 id="about-title" class="section-title">A software engineer who ships <span class="accent-text">and</span> verifies.</h2>
+        <p>
+          I'm Laxmi Poudel, a software engineer based in the Syracuse, NY area with a
+          <strong>B.S. in Software Engineering from Rochester Institute of Technology (RIT)</strong>.
+          I build full-stack features end to end with REST/API integration and object-oriented design, including
+          customer-facing software for an FAA air-traffic surveillance system on a Java/Spring, Angular, and PostgreSQL stack.
+        </p>
+        <p>
+          Today I build and maintain the automated test software for a high-volume radar production program in
+          LabVIEW, TestStand, and Python, and I trace system- and board-level failures down to the fix. Having
+          <strong>built production features and owned the test automation behind them</strong>, I can debug problems
+          across the full stack.
+        </p>
+        <p class="about-target">
+          <i class="fa-solid fa-crosshairs" aria-hidden="true"></i>
+          Targeting mid-level (Level&nbsp;2+) Software Engineer roles; open to SDET / test-automation.
+          <span class="badge">U.S. Citizen &middot; clearance-eligible</span>
+        </p>
+      </div>
       </div>
     </section>
 
@@ -203,7 +197,7 @@
           <article class="card glow-card" data-reveal>
             <div class="card-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
             <h3>Test Automation &amp; SDET</h3>
-            <p>Automated test software in LabVIEW, TestStand, and Python for a high-volume radar production program supporting ~10 test stations against FY27 demand of 200+ units. On the software side, <strong>JUnit, Selenium, Playwright and Vitest</strong>.</p>
+            <p>Automated test software in LabVIEW, TestStand, and Python for a high-volume radar production program. On the software side, <strong>JUnit, Selenium, Playwright and Vitest</strong>.</p>
           </article>
           <article class="card glow-card" data-reveal>
             <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div>
@@ -222,41 +216,41 @@
         <div class="skills-grid">
           <div class="skill-group skill-group--lead" data-reveal>
             <h3><i class="fa-solid fa-star" aria-hidden="true"></i> Core stack <span class="skill-note">day to day</span></h3>
-            <ul class="chips">
+            <ul class="chips" role="list">
               <li>Java</li><li>Spring Boot</li><li>Angular</li><li>React</li><li>TypeScript</li><li>PostgreSQL</li><li>Python</li><li>REST APIs</li><li>JUnit</li><li>Playwright</li>
             </ul>
           </div>
           <div class="skill-group" data-reveal>
             <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Languages</h3>
-            <ul class="chips">
+            <ul class="chips" role="list">
               <li>Java</li><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>C / C++</li><li>SQL</li><li>HTML / CSS</li>
             </ul>
           </div>
           <div class="skill-group" data-reveal>
             <h3><i class="fa-solid fa-vial-circle-check" aria-hidden="true"></i> Testing &amp; Quality</h3>
-            <ul class="chips">
+            <ul class="chips" role="list">
               <li>JUnit</li><li>Selenium</li><li>Playwright</li><li>Vitest</li><li>pytest</li><li>Unit / integration / e2e</li><li>Accessibility (axe-core)</li><li>LabVIEW</li><li>TestStand</li><li>Root-cause debugging</li>
             </ul>
           </div>
           <div class="skill-group" data-reveal>
             <h3><i class="fa-solid fa-cubes" aria-hidden="true"></i> Frameworks &amp; Libraries</h3>
-            <ul class="chips">
+            <ul class="chips" role="list">
               <li>Spring</li><li>Spring Boot</li><li>Angular</li><li>React</li><li>Next.js</li><li>Express</li><li>Flask</li><li>Tailwind</li><li>Maven</li><li>JSP</li><li>NumPy</li><li>SciPy</li><li>Log4j</li>
             </ul>
           </div>
           <div class="skill-group" data-reveal>
             <h3><i class="fa-solid fa-database" aria-hidden="true"></i> Databases</h3>
-            <ul class="chips"><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Firestore</li></ul>
+            <ul class="chips" role="list"><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Firestore</li></ul>
           </div>
           <div class="skill-group" data-reveal>
             <h3><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cloud, DevOps &amp; Tools</h3>
-            <ul class="chips">
+            <ul class="chips" role="list">
               <li>Docker</li><li>Kubernetes</li><li>Azure</li><li>Firebase</li><li>GitHub Actions</li><li>CI/CD</li><li>Jenkins</li><li>Git</li><li>Jira</li><li>Wildfly</li><li>IntelliJ</li><li>VS Code</li>
             </ul>
           </div>
           <div class="skill-group" data-reveal>
             <h3><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Platforms &amp; Methods</h3>
-            <ul class="chips">
+            <ul class="chips" role="list">
               <li>Linux</li><li>Windows Server</li><li>Agile / Scrum</li><li>REST APIs</li><li>FPGA programming</li><li>PMIC programming</li><li>T&amp;M hardware</li>
             </ul>
           </div>
@@ -278,9 +272,9 @@
                 <span class="tl-co">SRCTec · North Syracuse, NY</span>
                 <span class="tl-date">Aug 2025 - Present</span>
               </div>
-              <p class="tl-summary">Own the automated test software for a radar production program: ~10 test stations, FY27 demand of 200+ units.</p>
-              <ul class="tl-bullets">
-                <li>Build and maintain the automated test software for a radar production program in LabVIEW, TestStand, and Python; develop in-house test applications and integrate third-party packages to support <strong>~10 test stations</strong> against FY27 demand of <strong>200+ units</strong>.</li>
+              <p class="tl-summary">Own the automated test software for a radar production program.</p>
+              <ul class="tl-bullets" role="list">
+                <li>Build and maintain the automated test software for a radar production program in LabVIEW, TestStand, and Python; develop in-house test applications and integrate third-party packages to support the program's test stations.</li>
                 <li>Working on an initiative to raise first-time yield on a critical test station from <strong>below 50% toward an 80%+ target</strong> by identifying and eliminating false failures in the test software.</li>
                 <li>Root-caused a system-level FPGA programming failure and added a post-programming power cycle, lifting that step's first-time pass rate from <strong>0% to 100%</strong> and cutting it from two test runs to one (<strong>~50% less test time</strong> on the step).</li>
                 <li>Restored production after a Windows 10-to-11 upgrade broke a board-level test's detection of TI Fusion for PMIC programming, tracing the regression to the OS change and shipping a hotfix.</li>
@@ -298,7 +292,7 @@
                 <span class="tl-date">Jun 2024 - Aug 2024</span>
               </div>
               <p class="tl-summary">Automated radar test setup and modernized the Python toolchain behind it.</p>
-              <ul class="tl-bullets">
+              <ul class="tl-bullets" role="list">
                 <li>Cut manual effort <strong>~40%</strong> by automating radar test delay-line and RF-switch settings with Python over HTTPS.</li>
                 <li>Resolved <strong>15 issues</strong> across multiple libraries and upgraded <strong>Python 2.7 to 3.10</strong>, clearing backlog and improving testing speed <strong>~25%</strong>.</li>
                 <li>Migrated radar calibration software from Linux to Windows Server, improving performance and compatibility.</li>
@@ -315,7 +309,7 @@
                 <span class="tl-date">Jan 2023 - Aug 2023</span>
               </div>
               <p class="tl-summary">Shipped customer-facing features on an FAA air-traffic surveillance system (Java/Spring + Angular + PostgreSQL).</p>
-              <ul class="tl-bullets">
+              <ul class="tl-bullets" role="list">
                 <li>Launched an Air Situation Display (ASD) feature letting users view all aircraft within a radius on click, replacing a top-aircraft-only view.</li>
                 <li>Worked with the FAA to track objects via an Angular front end and Java back end, integrating the SysMon module into the Cooperative Surveillance System (CSS) through front-end/back-end API integration.</li>
                 <li>Improved data accuracy <strong>~20%</strong> by building filtering for low-quality ADS-B and MLAT data.</li>
@@ -391,7 +385,7 @@
                   <p>Planning a 32-day trip across Nepal and Japan meant a pile of notes, spreadsheets, screenshots and pins in a maps app. None of it works on a phone in Kathmandu with no signal, which is exactly when you need it.</p>
 
                   <p class="case-label">Evidence it works</p>
-                  <ul class="evidence-chips">
+                  <ul class="evidence-chips" role="list">
                     <li>95 Playwright specs</li>
                     <li>572 e2e cases</li>
                     <li>~2.1k unit assertions</li>
@@ -402,7 +396,7 @@
                 </div>
                 <div class="case-block">
                   <p class="case-label">Engineering</p>
-                  <ul class="case-list">
+                  <ul class="case-list" role="list">
                     <li>Static-export Next.js PWA with a hand-rolled service worker that precaches the app shell, so it installs to a home screen and keeps working with no connection. New builds show a "new version available" toast instead of reloading the page under you.</li>
                     <li>The device holds the data: <code>localStorage</code> for plans, IndexedDB for photos. The Firestore sync layer stays inert unless a web config is present, so the app runs with no backend at all.</li>
                     <li>CI gates the release. A hygiene job and a version gate that refuses to publish when the current version was already tagged, plus the Firestore security rules deployed from the same tree the build came from.</li>
@@ -435,7 +429,7 @@
               </div>
               <div class="case-block">
                 <p class="case-label">Engineering</p>
-                <ul class="case-list">
+                <ul class="case-list" role="list">
                   <li>Migrated the front end from JavaScript to TypeScript and standardized on Material UI, so bad props fail at compile time instead of in a sponsor demo.</li>
                   <li>Built login, user creation and the "Persona" role-based privilege model in the TypeScript/Express people service (REST + MongoDB).</li>
                   <li>Rendered multi-cloud metrics and logs through Grafana chart components inside the React shell.</li>
@@ -443,7 +437,7 @@
               </div>
               <div class="case-block">
                 <p class="case-label">Evidence it works</p>
-                <ul class="evidence-chips">
+                <ul class="evidence-chips" role="list">
                   <li>delivered to the sponsor</li>
                   <li>full academic year</li>
                   <li>5-person Agile team</li>
@@ -466,8 +460,7 @@
                 <defs>
                   <linearGradient id="tt-grad" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0" stop-color="var(--accent)" />
-                    <stop offset="0.55" stop-color="var(--accent-2)" />
-                    <stop offset="1" stop-color="var(--accent-3)" />
+                    <stop offset="1" stop-color="var(--accent)" stop-opacity="0.55" />
                   </linearGradient>
                 </defs>
                 <rect width="320" height="200" fill="var(--bg-elev-2)" />
@@ -498,14 +491,14 @@
               </div>
               <div class="case-block">
                 <p class="case-label">Engineering</p>
-                <ul class="case-list">
+                <ul class="case-list" role="list">
                   <li>Server-rendered Spring Boot + JSP application on a Maven build, with account creation, session handling and persisted scores.</li>
                   <li>Deployment automated to Azure App Service from a GitHub Actions workflow, so merging to main was the release.</li>
                 </ul>
               </div>
               <div class="case-block">
                 <p class="case-label">Evidence it works</p>
-                <ul class="evidence-chips">
+                <ul class="evidence-chips" role="list">
                   <li>shipped in sprints</li>
                   <li>design doc per sprint</li>
                   <li>CI/CD to Azure on every push</li>
@@ -538,7 +531,7 @@
             <a class="btn btn-primary" href="mailto:laxmipoudel311@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i> laxmipoudel311@gmail.com</a>
             <button type="button" id="copy-email" class="btn btn-ghost" data-email="laxmipoudel311@gmail.com">Copy address</button>
           </div>
-          <ul class="contact-list">
+          <ul class="contact-list" role="list">
             <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Liverpool, NY (Syracuse area)</li>
           </ul>
           <div class="contact-socials">
