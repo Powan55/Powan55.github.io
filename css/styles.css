@@ -30,8 +30,6 @@
   --accent: #38bdf8;
   --accent-glow: rgba(56, 189, 248, 0.32);
   --success: #34d399;
-  --chip-accent-text: #38bdf8;
-  --chip-success-text: #34d399;
   --on-accent: #04121f;
   --danger: #f87171;
   --frame-bg: radial-gradient(ellipse at 50% 0%, #1b2440 0%, #0a0e1a 70%);
@@ -70,9 +68,6 @@ html[data-theme="light"] {
   --field-border: #75849f;
   --accent-glow: rgba(3, 105, 161, 0.18);
   --success: #047857;
-  /* darker than --accent / --success: chip text sits on a tinted background */
-  --chip-accent-text: #0369a1;
-  --chip-success-text: #047857;
   --shadow: 0 10px 40px rgba(20, 40, 80, 0.12);
   color-scheme: light;
 }
@@ -338,7 +333,7 @@ html[data-theme="light"] .hero-title .accent-text { color: #075985; }
 .work-card:hover .work-media img { transform: scale(1.06); }
 .work-body { padding: var(--space-4) var(--space-5) var(--space-5); display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2px; }
-.work-tags span { font-size: .875rem; font-family: var(--font-mono); color: var(--chip-accent-text); background: color-mix(in srgb, var(--accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent); border-radius: var(--radius-pill); padding: 3px 9px; }
+.work-tags span { font-size: .875rem; font-family: var(--font-mono); color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent); border-radius: var(--radius-pill); padding: 3px 9px; }
 .work-body h3, .work-body h4 { font-size: 1.2rem; }
 .work-sub { color: var(--text-muted); font-size: .875rem; font-weight: 500; margin-top: -4px; }
 .work-body > p:not(.work-sub):not(.work-outcome) { color: var(--text-muted); font-size: .95rem; }
@@ -408,7 +403,7 @@ html[data-theme="light"] .hero-title .accent-text { color: #075985; }
 
 .evidence-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .evidence-chips li {
-  font-size: .875rem; font-family: var(--font-mono); color: var(--chip-success-text);
+  font-size: .875rem; font-family: var(--font-mono); color: var(--success);
   background: color-mix(in srgb, var(--success) 12%, transparent);
   border: 1px solid color-mix(in srgb, var(--success) 32%, transparent);
   border-radius: var(--radius-pill); padding: 3px 9px;
@@ -585,8 +580,8 @@ html[data-theme="light"] .hero-title .accent-text { color: #075985; }
   :root, html[data-theme="dark"], html[data-theme="light"] {
     --bg: #fff; --bg-elev: #fff; --bg-elev-2: #fff;
     --text: #000; --text-muted: #333; --border: #bbb;
-    --accent: #075985; --chip-accent-text: #075985;
-    --success: #047857; --chip-success-text: #047857;
+    --accent: #075985;
+    --success: #047857;
     --on-accent: #fff; --danger: #b91c1c; --accent-glow: transparent;
     --shadow: none; color-scheme: light;
   }
