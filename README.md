@@ -1,34 +1,15 @@
-# Laxmi Poudel - Personal Portfolio
+# Laxmi Poudel
 
-Source for my personal portfolio site, live at **https://powan55.github.io/**.
+Source for my portfolio, live at https://powan55.github.io/. Plain HTML, CSS and JavaScript, served by GitHub Pages from `main`.
 
-Software engineer (B.S. Software Engineering, RIT) building full-stack features
-(Java/Spring, Angular, React/TypeScript, PostgreSQL) and the test automation behind
-them (JUnit, Selenium, Playwright, LabVIEW/TestStand).
+## Run it
 
-## Stack
+Open `index.html`, or from this folder run `python -m http.server` and go to http://localhost:8000.
 
-Plain **HTML, CSS, and vanilla JavaScript**. No framework and no build step.
-Deployed directly via GitHub Pages from `main`.
+## Folders
 
-```
-index.html        # single-page site
-css/styles.css    # design tokens, layout, motion, responsive
-js/main.js        # nav, scroll-spy, reveal, typing, theme, contact form
-assets/img/       # images
-assets/resume/    # résumé PDF
-```
-
-## Develop locally
-
-Just open `index.html`, or serve the folder:
-
-```bash
-npx serve .
-```
-
-## Contact
-
-- Email: laxmipoudel311@gmail.com
-- LinkedIn: https://www.linkedin.com/in/laxmi-poudel-b8379b166/
-- GitHub: https://github.com/Powan55
+- `index.html`: the page
+- `css/styles.css`: styles
+- `js/main.js`: nav, theme toggle, scroll reveal, contact form
+- `assets/img/`: images
+- `assets/resume/`: resume PDF
