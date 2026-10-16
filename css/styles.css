@@ -581,12 +581,13 @@ html:not(.js) .contact-grid { grid-template-columns: 1fr; }
   .tl-card, .work-card, .skill-group, .edu-card, .glow-card {
     box-shadow: none; border-color: #ccc; break-inside: avoid;
   }
-  .work-media { display: none; }
+  .work-card .work-media { display: none !important; }
+  .js [data-reveal], .js [data-reveal].in-view { opacity: 1; transform: none; transition: none; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .75em; color: #555; word-break: break-all; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
-  [data-reveal] { opacity: 1; transform: none; }
+  .js [data-reveal] { opacity: 1; transform: none; }
 }
