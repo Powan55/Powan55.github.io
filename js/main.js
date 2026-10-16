@@ -116,44 +116,15 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = entry.target.getAttribute("id");
-            navLinks.forEach((a) => {
-              const active = a.getAttribute("href") === "#" + id;
-              a.toggleAttribute("aria-current", active);
-              if (active) a.setAttribute("aria-current", "page");
-            });
+            navLinks.forEach((a) => a.removeAttribute("aria-current"));
+            const current = navLinks.find((a) => a.getAttribute("href") === "#" + id);
+            if (current) current.setAttribute("aria-current", "page");
           }
         });
       },
       { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
     );
     sections.forEach((s) => spy.observe(s));
-  }
-
-  /* ---------- Typed role ---------- */
-  const typed = document.getElementById("typed-role");
-  if (typed) {
-    const roles = [
-      "full-stack software.",
-      "the test automation behind it.",
-      "with Java, Spring & Angular.",
-      "and the tests that prove it.",
-      "and root-cause the hard bugs.",
-    ];
-    if (prefersReduced) {
-      typed.textContent = roles[0];
-    } else {
-      let r = 0, c = 0, deleting = false;
-      const tick = () => {
-        const word = roles[r];
-        c += deleting ? -1 : 1;
-        typed.textContent = word.slice(0, c);
-        let delay = deleting ? 40 : 75;
-        if (!deleting && c === word.length) { delay = 1600; deleting = true; }
-        else if (deleting && c === 0) { deleting = false; r = (r + 1) % roles.length; delay = 350; }
-        setTimeout(tick, delay);
-      };
-      setTimeout(tick, 600);
-    }
   }
 
   /* ---------- Cursor-tracked card glow ---------- */
@@ -187,20 +158,23 @@
     const submitBtn = form.querySelector('button[type="submit"]');
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      const honeypot = form.elements["_hp"];
+      if (honeypot && honeypot.value) { form.reset(); return; }
       if (!form.checkValidity()) { form.reportValidity(); return; }
       const original = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
       if (msg) { msg.className = ""; msg.textContent = ""; }
 
-      fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      // Apps Script replies with a cross-origin redirect the page can't read, so a
+      // resolved promise is not proof of delivery. Send it opaque and say only what we know.
+      fetch(scriptURL, { method: "POST", mode: "no-cors", body: new FormData(form) })
         .then(() => {
-          if (msg) { msg.className = ""; msg.textContent = "Thanks! Your message was sent."; }
+          if (msg) { msg.className = ""; msg.textContent = "Sent. If you don't hear back within a day, email me at laxmipoudel311@gmail.com."; }
           form.reset();
-          setTimeout(() => { if (msg) msg.textContent = ""; }, 6000);
+          setTimeout(() => { if (msg) msg.textContent = ""; }, 12000);
         })
-        .catch((error) => {
-          console.error("Error!", error.message);
-          if (msg) { msg.className = "error"; msg.textContent = "Something went wrong. Email me directly at laxmipoudel311@gmail.com."; }
+        .catch(() => {
+          if (msg) { msg.className = "error"; msg.textContent = "That didn't go through. Email me at laxmipoudel311@gmail.com."; }
         })
         .finally(() => {
           if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = original; }
