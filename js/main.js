@@ -2,6 +2,7 @@
   "use strict";
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const onMedia = (mq, fn) => (mq.addEventListener ? mq.addEventListener("change", fn) : mq.addListener(fn));
 
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
@@ -44,36 +45,39 @@
 
   const navToggle = document.getElementById("nav-toggle");
   const nav = document.getElementById("primary-nav");
+  const themeToggle = document.getElementById("theme-toggle");
   const burgerIcon = navToggle ? navToggle.querySelector("use") : null;
+  const behind = Array.from(document.querySelectorAll("main, footer, #to-top"));
 
-  function setNav(open) {
+  function setNav(open, focusTarget) {
     document.body.classList.toggle("nav-open", open);
     navToggle.setAttribute("aria-expanded", String(open));
     navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     if (burgerIcon) burgerIcon.setAttribute("href", open ? "#i-x" : "#i-menu");
+    behind.forEach((el) => { el.inert = open; });
+    if (focusTarget) focusTarget.focus();
   }
   if (navToggle && nav) {
     const isOpen = () => document.body.classList.contains("nav-open");
-    navToggle.addEventListener("click", () => setNav(!isOpen()));
+    navToggle.addEventListener("click", () =>
+      isOpen() ? setNav(false, navToggle) : setNav(true, nav.querySelector("a"))
+    );
     nav.addEventListener("click", (e) => {
       if (e.target.closest("a")) setNav(false);
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && isOpen()) {
-        setNav(false);
-        navToggle.focus();
-      }
+      if (e.key === "Escape" && isOpen()) setNav(false, navToggle);
     });
     // the dim backdrop is body::after, so a tap on it lands on body
     document.addEventListener("click", (e) => {
-      if (isOpen() && !nav.contains(e.target) && !navToggle.contains(e.target)) setNav(false);
+      if (isOpen() && !nav.contains(e.target) && !navToggle.contains(e.target) &&
+          !(themeToggle && themeToggle.contains(e.target))) setNav(false, navToggle);
     });
-    window.matchMedia("(min-width: 901px)").addEventListener("change", (e) => {
+    onMedia(window.matchMedia("(min-width: 901px)"), (e) => {
       if (e.matches) setNav(false);
     });
   }
 
-  const themeToggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
 
   function applyTheme(theme) {
