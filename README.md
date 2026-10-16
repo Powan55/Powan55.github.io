@@ -9,6 +9,7 @@ Open `index.html`, or from this folder run `python -m http.server` and go to htt
 ## Folders
 
 - `index.html`: the page
+- `trip-planner.html`: project walkthrough with sample screens
 - `css/styles.css`: styles
 - `js/main.js`: nav, theme toggle, scroll reveal, contact form
 - `assets/img/`: images

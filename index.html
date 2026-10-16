@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- the js class only gates the below-the-fold reveal; no JS means everything shows -->
   <script>
     (function () {
       var d = document.documentElement;
       d.classList.add("js");
-      // main.js sets window.__ready first thing; if it never loads, drop the js class so nothing stays hidden
       setTimeout(function () { if (!window.__ready) d.classList.remove("js"); }, 6000);
       try {
         var t = localStorage.getItem("theme") ||
@@ -19,7 +17,7 @@
     })();
   </script>
 
-  <title>Laxmi Poudel | Software Engineer (Full-Stack &amp; Test Automation)</title>
+  <title>Laxmi Poudel | Full-Stack Software Engineer</title>
   <meta name="description" content="Laxmi Poudel, software engineer near Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python." />
   <meta name="author" content="Laxmi Poudel" />
   <meta name="theme-color" content="#f5f7fc" media="(prefers-color-scheme: light)" />
@@ -110,8 +108,8 @@
       <nav id="primary-nav" aria-label="Primary">
         <ul class="nav-list" role="list">
           <li><a href="#home">Home</a></li>
-          <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -144,7 +142,7 @@
           </p>
           <h1 class="hero-title"><span class="accent-text">Laxmi&nbsp;Poudel</span></h1>
           <p class="hero-role">
-            Software engineer in the Syracuse area. I write full-stack features and automated tests.
+            Full-stack software engineer. Java, Spring, Angular and PostgreSQL.
           </p>
           <ul class="hero-facts" role="list">
             <li><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg> Test Engineer at SRCTec, since Aug&nbsp;2025</li>
@@ -177,6 +175,108 @@
             <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
             <a class="hero-email" href="mailto:laxmipoudel311@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg> laxmipoudel311@gmail.com</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section" aria-labelledby="proj-title">
+      <div class="container">
+        <h2 id="proj-title" class="section-title" data-reveal>Projects</h2>
+
+        <div class="work-grid">
+          <article class="work-card work-card--featured glow-card" data-reveal>
+            <div class="work-media work-media--shots">
+              <img src="assets/img/trip-planner-day.webp" alt="Trip planner day view with the morning's plans listed by time, using sample data" width="390" height="844" loading="lazy" />
+              <img src="assets/img/trip-planner-map.webp" alt="Trip planner map of Kathmandu with numbered stops joined by a route, using sample data" width="390" height="844" loading="lazy" />
+              <img class="shot-extra" src="assets/img/trip-planner-expenses.webp" alt="Trip planner expense log with amounts in yen and rupees split between travelers, using sample data" width="390" height="844" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="work-tags">
+                <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span><span>MapLibre</span><span>PWA</span><span>Playwright</span>
+              </div>
+              <h3>Nepal &times; Japan Trip Planner <span class="tl-flag">Featured</span></h3>
+              <p class="work-sub">Solo project, shipped on GitHub Pages</p>
+              <p class="work-outcome">An installable planner that keeps trip plans on the device for use offline.</p>
+
+              <div class="case-cols">
+                <div class="case-block">
+                  <p class="case-label">The app</p>
+                  <p>I built the trip planner from the interface through local storage, optional sync and release checks.</p>
+
+                  <p class="case-label">Release checks</p>
+                  <p>Playwright browser tests, Vitest unit tests and axe-core accessibility checks run in GitHub Actions. A version check blocks releases without a version bump.</p>
+                </div>
+                <div class="case-block">
+                  <p class="case-label">How it works</p>
+                  <ul class="case-list" role="list">
+                    <li>A service worker caches the app shell. The interface can load without a server connection after it has been cached.</li>
+                    <li>Plans use <code>localStorage</code>; photos use IndexedDB. Firestore sync is optional in the code, so local storage does not depend on it.</li>
+                    <li>The deployed app requires sign-in. The walkthrough uses sample screenshots and explains the storage choices without an account.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="work-links">
+                <a class="work-link" href="trip-planner.html">View walkthrough <svg class="i" aria-hidden="true"><use href="#i-external-link"/></svg></a>
+                <a class="work-link" href="https://powan55.github.io/trip_planner/" target="_blank" rel="noopener noreferrer">Live app (sign-in required) <svg class="i" aria-hidden="true"><use href="#i-external-link"/></svg></a>
+                <a class="work-link" href="https://github.com/Powan55/trip_planner" target="_blank" rel="noopener noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card work-card--wide glow-card" data-reveal>
+            <div class="work-body">
+              <div class="work-tags">
+                <span>React</span><span>TypeScript</span><span>Material UI</span><span>Express</span><span>MongoDB</span><span>Grafana</span>
+              </div>
+              <h3>Single Pane of Glass</h3>
+              <p class="work-sub">RIT senior capstone &middot; sponsored by LenelS2 (Honeywell) &middot; team of 5 &middot; Aug 2024 - May 2025</p>
+              <p class="work-outcome">Extended the sponsor's multi-cloud monitoring dashboard with a typed React front end and role-based access.</p>
+
+              <div class="case-cols">
+                <div class="case-block">
+                  <p class="case-label">The project</p>
+                  <p>A five-person RIT capstone team extended an existing dashboard for cost, performance and alerting across AWS, Azure and GCP. I worked on the React front end and user access service.</p>
+
+                </div>
+                <div class="case-block">
+                  <p class="case-label">What I built</p>
+                  <ul class="case-list" role="list">
+                    <li>Migrated the front end from JavaScript to TypeScript and standardized on Material UI to catch type errors during development.</li>
+                    <li>Built login, user creation and the "Persona" role-based privilege model in the TypeScript/Express people service (REST and MongoDB).</li>
+                    <li>Rendered multi-cloud metrics and logs through Grafana chart components in the React shell.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="work-links">
+                <a class="work-link" href="https://the-nimbus-navigators.github.io/senior-project-website/" target="_blank" rel="noopener noreferrer">Project site <svg class="i" aria-hidden="true"><use href="#i-external-link"/></svg></a>
+                <span class="work-note">Code is private, owned by the sponsor</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="subhead" data-reveal>Other work</h3>
+        <div class="other-work">
+          <article class="work-card work-card--mini glow-card" data-reveal>
+            <div class="work-body">
+              <div class="work-tags">
+                <span>Java</span><span>Spring Boot</span><span>JSP</span><span>Maven</span><span>JUnit 5</span>
+              </div>
+              <h4>Trivial-Trivia</h4>
+              <p>Team project built with Spring Boot and JSP, with accounts, sessions and saved scores. GitHub Actions handled deployment to Azure App Service. The browser demo is a static version of the game loop; the original hosted backend is retired.</p>
+              <div class="work-links">
+                <a class="work-link" href="https://powan55.github.io/Trivial-Trivia/" target="_blank" rel="noopener noreferrer">Browser demo <svg class="i" aria-hidden="true"><use href="#i-external-link"/></svg></a>
+                <a class="work-link" href="https://github.com/Powan55/Trivial-Trivia" target="_blank" rel="noopener noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="center-cta" data-reveal>
+          <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">See more on GitHub <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
         </div>
       </div>
     </section>
@@ -248,125 +348,6 @@
       </div>
     </section>
 
-    <section id="projects" class="section" aria-labelledby="proj-title">
-      <div class="container">
-        <h2 id="proj-title" class="section-title" data-reveal>Projects</h2>
-
-        <div class="work-grid">
-          <article class="work-card work-card--featured glow-card" data-reveal>
-            <div class="work-media work-media--shots">
-              <img src="assets/img/trip-planner-day.webp" alt="Trip planner day view with the morning's plans listed by time, using sample data" width="390" height="844" loading="lazy" />
-              <img src="assets/img/trip-planner-map.webp" alt="Trip planner map of Kathmandu with numbered stops joined by a route, using sample data" width="390" height="844" loading="lazy" />
-              <img class="shot-extra" src="assets/img/trip-planner-expenses.webp" alt="Trip planner expense log with amounts in yen and rupees split between travelers, using sample data" width="390" height="844" loading="lazy" />
-            </div>
-            <div class="work-body">
-              <div class="work-tags">
-                <span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Tailwind</span><span>MapLibre</span><span>PWA</span><span>Playwright</span>
-              </div>
-              <h3>Nepal &times; Japan Trip Planner <span class="tl-flag">Featured</span></h3>
-              <p class="work-sub">v7.8.0</p>
-              <p class="work-outcome">An installable trip planner that keeps working with no signal, built for a 32-day trip across Nepal and Japan.</p>
-
-              <div class="case-cols">
-                <div class="case-block">
-                  <p class="case-label">Why I built it</p>
-                  <p>I wanted the notes, spreadsheets, screenshots and map pins for the trip in one place, and one that still works on a phone with no signal.</p>
-
-                  <p class="case-label">What the tests cover</p>
-                  <ul class="evidence-chips" role="list">
-                    <li>107 Playwright spec files</li>
-                    <li>570+ e2e cases</li>
-                    <li>311 Vitest files</li>
-                    <li>axe-core in 42 specs</li>
-                  </ul>
-                </div>
-                <div class="case-block">
-                  <p class="case-label">How it works</p>
-                  <ul class="case-list" role="list">
-                    <li>Static export on GitHub Pages. A hand-rolled service worker precaches the app shell, so it installs to a home screen and runs offline.</li>
-                    <li>Runs local-first, with plans in <code>localStorage</code>. Firestore sync is optional in the code. The deployed app uses it and requires sign-in, so the screenshots use sample data.</li>
-                    <li>A MapLibre map shows each day's stops and the route between them.</li>
-                    <li>CI on every PR: typecheck, ESLint with zero warnings, Vitest, a production build, byte budgets, a Firestore rules check, and Playwright end-to-end and visual jobs. A release gate blocks a deploy without a version bump, and a smoke test checks the live site afterward.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="work-links">
-                <a class="work-link" href="https://powan55.github.io/trip_planner/" target="_blank" rel="noopener noreferrer">Live app (sign-in required) <svg class="i" aria-hidden="true"><use href="#i-external-link"/></svg></a>
-                <a class="work-link" href="https://github.com/Powan55/trip_planner" target="_blank" rel="noopener noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
-              </div>
-            </div>
-          </article>
-
-          <article class="work-card work-card--wide glow-card" data-reveal>
-            <div class="work-body">
-              <div class="work-tags">
-                <span>React</span><span>TypeScript</span><span>Material UI</span><span>Express</span><span>MongoDB</span><span>Grafana</span>
-              </div>
-              <h3>Single Pane of Glass</h3>
-              <p class="work-sub">RIT senior capstone &middot; sponsored by LenelS2 (Honeywell) &middot; team of 5 &middot; Aug 2024 - May 2025</p>
-              <p class="work-outcome">Extended the sponsor's multi-cloud monitoring dashboard with a typed React front end and role-based access.</p>
-
-              <div class="case-cols">
-                <div class="case-block">
-                  <p class="case-label">The problem</p>
-                  <p>Cost, performance and alerting data for AWS, Azure and GCP sat in three separate consoles. The sponsor's internal React dashboard was meant to unify them, but it was hard to change and had no real access control.</p>
-
-                  <p class="case-label">Delivery</p>
-                  <ul class="evidence-chips" role="list">
-                    <li>delivered to the sponsor</li>
-                    <li>5-person Agile team</li>
-                    <li>front end fully typed</li>
-                    <li>role-based access control</li>
-                  </ul>
-                </div>
-                <div class="case-block">
-                  <p class="case-label">What I built</p>
-                  <ul class="case-list" role="list">
-                    <li>Migrated the front end from JavaScript to TypeScript and standardized on Material UI, so bad props fail at compile time instead of in a sponsor demo.</li>
-                    <li>Built login, user creation and the "Persona" role-based privilege model in the TypeScript/Express people service (REST and MongoDB).</li>
-                    <li>Rendered multi-cloud metrics and logs through Grafana chart components in the React shell.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="work-links">
-                <a class="work-link" href="https://the-nimbus-navigators.github.io/senior-project-website/" target="_blank" rel="noopener noreferrer">Project site <svg class="i" aria-hidden="true"><use href="#i-external-link"/></svg></a>
-                <span class="work-note">Code is private, owned by the sponsor</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <h3 class="subhead" data-reveal>Other work</h3>
-        <div class="other-work">
-          <article class="work-card work-card--mini glow-card" data-reveal>
-            <div class="work-body">
-              <div class="work-tags">
-                <span>Java</span><span>Spring Boot</span><span>JSP</span><span>Maven</span><span>JUnit 5</span>
-              </div>
-              <h4>Trivial-Trivia</h4>
-              <p>Team project: a multiple-choice trivia game with accounts and saved scores, built in sprints with a design doc each sprint. 111 JUnit 5 tests, with line coverage around 94% and an 85% gate on the build. The hosted Azure instance is gone; the browser demo is a static copy of the game loop.</p>
-              <div class="work-links">
-                <a class="work-link" href="https://powan55.github.io/Trivial-Trivia/" target="_blank" rel="noopener noreferrer">Browser demo <svg class="i" aria-hidden="true"><use href="#i-external-link"/></svg></a>
-                <a class="work-link" href="https://github.com/Powan55/Trivial-Trivia" target="_blank" rel="noopener noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
-              </div>
-            </div>
-          </article>
-
-          <div class="work-row glow-card" data-reveal>
-            <h4>NOVA <span class="tl-flag">In progress</span></h4>
-            <p>Locally hosted agent that turns software requirements into test plans. Docs and spikes so far, no application services yet.</p>
-            <a class="work-link" href="https://github.com/Powan55/NOVA" target="_blank" rel="noopener noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
-          </div>
-        </div>
-
-        <div class="center-cta" data-reveal>
-          <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">See more on GitHub <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
-        </div>
-      </div>
-    </section>
-
     <section id="skills" class="section" aria-labelledby="skills-title">
       <div class="container">
         <h2 id="skills-title" class="section-title" data-reveal>Skills &amp; Technologies</h2>
@@ -374,13 +355,13 @@
           <div class="skill-group" data-reveal>
             <h3><svg class="i" aria-hidden="true"><use href="#i-code"/></svg> Languages</h3>
             <ul class="chips" role="list">
-              <li>Java</li><li>TypeScript</li><li>Python</li><li>JavaScript</li><li>SQL</li><li>C / C++</li><li>HTML / CSS</li>
+              <li>Java</li><li>TypeScript</li><li>Python</li><li>JavaScript</li><li>SQL</li><li>HTML / CSS</li>
             </ul>
           </div>
           <div class="skill-group" data-reveal>
             <h3><svg class="i" aria-hidden="true"><use href="#i-server"/></svg> Back end &amp; data</h3>
             <ul class="chips" role="list">
-              <li>Spring Boot</li><li>Spring</li><li>REST APIs</li><li>PostgreSQL</li><li>Java EE</li><li>Express</li><li>MongoDB</li><li>MySQL</li><li>Maven</li><li>Flask</li><li>JSP</li><li>Firestore</li><li>Log4j</li><li>Wildfly</li><li>NumPy</li><li>SciPy</li>
+              <li>Spring Boot</li><li>Spring</li><li>REST APIs</li><li>PostgreSQL</li><li>Express</li><li>MongoDB</li><li>Maven</li><li>JSP</li><li>Firestore</li>
             </ul>
           </div>
           <div class="skill-group" data-reveal>
@@ -392,13 +373,13 @@
           <div class="skill-group" data-reveal>
             <h3><svg class="i" aria-hidden="true"><use href="#i-flask"/></svg> Testing &amp; quality</h3>
             <ul class="chips" role="list">
-              <li>LabVIEW</li><li>TestStand</li><li>Playwright</li><li>JUnit</li><li>pytest</li><li>Vitest</li><li>Accessibility (axe-core)</li><li>Selenium</li>
+              <li>Playwright</li><li>JUnit</li><li>Vitest</li><li>Accessibility (axe-core)</li><li>LabVIEW</li><li>TestStand</li>
             </ul>
           </div>
           <div class="skill-group" data-reveal>
             <h3><svg class="i" aria-hidden="true"><use href="#i-wrench"/></svg> Tools &amp; platforms</h3>
             <ul class="chips" role="list">
-              <li>Git</li><li>GitHub Actions</li><li>CI/CD</li><li>Docker</li><li>Agile / Scrum</li><li>Linux</li><li>Windows Server</li><li>Azure</li><li>Jenkins</li><li>Jira</li><li>IntelliJ</li><li>VS Code</li><li>Eclipse</li><li>Firebase</li><li>Kubernetes</li>
+              <li>Git</li><li>GitHub Actions</li><li>CI/CD</li><li>Linux</li><li>Windows Server</li><li>Azure</li><li>Firebase</li><li>Jira</li>
             </ul>
           </div>
         </div>
@@ -418,11 +399,11 @@
             SRCTec, writing the automated test software for a radar production program in LabVIEW, TestStand and Python.
           </p>
           <p>
-            I like the debugging most. One FPGA programming step never passed on the first run until I traced the failure and added a
-            power cycle. On my own time I built a trip planner that works offline and has 570+ end-to-end tests.
+            Outside work, I built and shipped a trip planner with Next.js and TypeScript. It stores plans on the device and uses a
+            service worker to cache the app shell for offline use.
           </p>
           <p>
-            I'm looking for a software engineer role where I get back to building features on a full-stack team. SDET and test-automation roles are also fine.
+            I'm looking for a full-stack or backend software engineer role, remote or in the Syracuse area.
           </p>
           <p>
             U.S. Citizen. Eligible for U.S. Security Clearance.
@@ -435,7 +416,7 @@
       <div class="container contact-grid">
         <div data-reveal>
           <h2 id="contact-title" class="section-title">Get in touch</h2>
-          <p class="contact-lead">Open to software engineer roles. SDET and test-automation roles are also fine. Email is the fastest way to reach me.</p>
+          <p class="contact-lead">Open to full-stack and backend software engineer roles. Email is the fastest way to reach me.</p>
           <div class="contact-email">
             <a class="btn btn-primary" href="mailto:laxmipoudel311@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg> laxmipoudel311@gmail.com</a>
             <button type="button" id="copy-email" class="btn btn-ghost">Copy address</button>

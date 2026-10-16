@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trip Planner: Screens and Design | Laxmi Poudel</title>
+  <meta name="description" content="A look at Laxmi Poudel's trip planner: sample screens, local storage, optional sync and release checks.">
+  <meta name="author" content="Laxmi Poudel">
+  <link rel="canonical" href="https://powan55.github.io/trip-planner.html">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/walkthrough.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="walkthrough-header"><div class="container"><a href="index.html#projects">Back to portfolio</a></div></header>
+  <main id="main" class="container walkthrough" tabindex="-1">
+    <p class="eyebrow">Solo project</p>
+    <h1>Nepal x Japan Trip Planner</h1>
+    <p class="walkthrough-lead">Trip plans on the device, with an app shell that can load offline.</p>
+    <p>This walkthrough uses sample screenshots. No account needed. The full app requires sign-in.</p>
+    <nav class="walkthrough-nav" aria-label="Walkthrough">
+      <a href="#screens">Screens</a><a href="#design">Design choices</a><a href="#checks">Release checks</a>
+    </nav>
+    <section id="screens" aria-labelledby="screens-title">
+      <h2 id="screens-title">A day in the app</h2>
+      <div class="walkthrough-screens">
+        <figure>
+          <a href="assets/img/trip-planner-day.webp" aria-label="Open full-size day planner screenshot"><img src="assets/img/trip-planner-day.webp" width="390" height="844" alt="Sample day planner showing timed stops in Kathmandu"></a>
+          <figcaption><strong>Plan the day.</strong> Stops appear in time order, with notes beside each one.</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/img/trip-planner-map.webp" aria-label="Open full-size map screenshot"><img src="assets/img/trip-planner-map.webp" width="390" height="844" alt="Sample map showing numbered Kathmandu stops and a route"></a>
+          <figcaption><strong>See the route.</strong> Numbered stops connect the day's plans to places on the map.</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/img/trip-planner-expenses.webp" aria-label="Open full-size expenses screenshot"><img src="assets/img/trip-planner-expenses.webp" width="390" height="844" alt="Sample expense list with costs in yen and rupees split between travelers"></a>
+          <figcaption><strong>Track spending.</strong> Shared expenses sit beside the itinerary.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section id="design" aria-labelledby="design-title">
+      <h2 id="design-title">Design choices</h2>
+      <dl class="design-notes">
+        <div><dt>Static hosting</dt><dd>Next.js exports the app to GitHub Pages. The deployed interface does not need a Next.js server.</dd></div>
+        <div><dt>Local storage first</dt><dd>Plans use localStorage and photos use IndexedDB. Keeping that data on the device supports offline use. Browser data can be cleared, so local storage has limits as a long-term backup.</dd></div>
+        <div><dt>Optional sync</dt><dd>The Firestore layer stays inactive without Firebase configuration. Storage and sync are separate parts of the app; the deployed version uses sign-in.</dd></div>
+        <div><dt>Cached app shell</dt><dd>A service worker caches the interface for later offline use. That requires an initial load online. A cached shell alone does not guarantee that external map tiles are available offline.</dd></div>
+      </dl>
+    </section>
+    <section id="checks" aria-labelledby="checks-title">
+      <h2 id="checks-title">Before a release</h2>
+      <p>Playwright browser tests, Vitest unit tests and axe-core accessibility checks run in GitHub Actions. A version gate blocks publishing without a version bump.</p>
+      <p>The repository contains the implementation and test suites. Screenshots show the interface; they do not replace trying the app.</p>
+      <div class="work-links">
+        <a class="btn btn-primary" href="https://github.com/Powan55/trip_planner" target="_blank" rel="noopener noreferrer">Read the code</a>
+        <a class="btn btn-ghost" href="https://powan55.github.io/trip_planner/" target="_blank" rel="noopener noreferrer">Open app (sign-in required)</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container"><a href="index.html#contact">Contact Laxmi Poudel</a></div></footer>
+</body>
+</html>

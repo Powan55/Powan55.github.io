@@ -1,0 +1,23 @@
+.walkthrough-header { padding-block: 20px; border-bottom: 1px solid var(--border); }
+.walkthrough-header a, .walkthrough-nav a { display: inline-flex; min-height: 44px; align-items: center; color: var(--accent); }
+.walkthrough { padding-block: 48px; }
+.walkthrough h1 { font-size: clamp(2rem, 5vw, 3.5rem); max-width: 18ch; margin-bottom: 20px; }
+.walkthrough-lead { font-size: 1.25rem; color: var(--text); margin-bottom: 12px; }
+.walkthrough p { max-width: 76ch; margin-bottom: 16px; }
+.walkthrough-nav { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-block: 24px; }
+.walkthrough section { padding-block: 32px; border-top: 1px solid var(--border); }
+.walkthrough h2 { margin-bottom: 24px; font-size: 1.6rem; }
+.walkthrough-screens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.walkthrough figure { margin: 0; }
+.walkthrough figure a { display: block; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; }
+.walkthrough figure img { width: 100%; height: auto; }
+.walkthrough figcaption { color: var(--text-muted); margin-top: 16px; }
+.walkthrough figcaption strong { color: var(--text); }
+.design-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.design-notes dt { font-weight: 700; margin-bottom: 8px; }
+.design-notes dd { margin: 0; color: var(--text-muted); }
+@media (max-width: 650px) {
+  .walkthrough { padding-block: 28px; }
+  .walkthrough-screens, .design-notes { grid-template-columns: 1fr; }
+  .walkthrough figure { max-width: 390px; margin-inline: auto; }
+}
