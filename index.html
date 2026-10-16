@@ -9,6 +9,8 @@
     (function () {
       var d = document.documentElement;
       d.classList.add("js");
+      // main.js sets window.__ready first thing; if it never loads, drop the js class so nothing stays hidden
+      setTimeout(function () { if (!window.__ready) d.classList.remove("js"); }, 3000);
       try {
         var t = localStorage.getItem("theme") ||
           (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
@@ -18,7 +20,7 @@
   </script>
 
   <title>Laxmi Poudel | Software Engineer (Full-Stack &amp; Test Automation)</title>
-  <meta name="description" content="Laxmi Poudel, software engineer in Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python." />
+  <meta name="description" content="Laxmi Poudel, software engineer near Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python." />
   <meta name="author" content="Laxmi Poudel" />
   <meta name="theme-color" content="#f5f7fc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0a0e1a" media="(prefers-color-scheme: dark)" />
@@ -28,17 +30,17 @@
   <meta property="og:site_name" content="Laxmi Poudel" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Laxmi Poudel | Software Engineer" />
-  <meta property="og:description" content="Laxmi Poudel, software engineer in Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python." />
+  <meta property="og:description" content="Laxmi Poudel, software engineer near Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python." />
   <meta property="og:url" content="https://powan55.github.io/" />
   <meta property="og:image" content="https://powan55.github.io/assets/img/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Laxmi Poudel, Software engineer. powan55.github.io" />
+  <meta property="og:image:alt" content="Laxmi Poudel, Software engineer. Java, Angular, Python. powan55.github.io" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Laxmi Poudel | Software Engineer" />
-  <meta name="twitter:description" content="Laxmi Poudel, software engineer in Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python." />
+  <meta name="twitter:description" content="Laxmi Poudel, software engineer near Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python." />
   <meta name="twitter:image" content="https://powan55.github.io/assets/img/og-image.jpg" />
-  <meta name="twitter:image:alt" content="Laxmi Poudel, Software engineer. powan55.github.io" />
+  <meta name="twitter:image:alt" content="Laxmi Poudel, Software engineer. Java, Angular, Python. powan55.github.io" />
 
   <link rel="icon" href="favicon.ico" sizes="32x32 48x48" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0e1a'/%3E%3Cpath d='M11.75 16v32h15M35.75 48V16h8a8.5 8.5 0 0 1 0 17h-8' fill='none' stroke='%2338bdf8' stroke-width='6.5'/%3E%3C/svg%3E" type="image/svg+xml" sizes="any" />
@@ -56,7 +58,7 @@
     "name": "Laxmi Poudel",
     "url": "https://powan55.github.io/",
     "email": "laxmipoudel311@gmail.com",
-    "description": "Laxmi Poudel, software engineer in Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python.",
+    "description": "Laxmi Poudel, software engineer near Syracuse, NY. Java/Spring, Angular and PostgreSQL features, plus automated test software in LabVIEW, TestStand and Python.",
     "image": "https://powan55.github.io/assets/img/headshot.jpg",
     "worksFor": { "@type": "Organization", "name": "SRCTec" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Rochester Institute of Technology" },
@@ -78,6 +80,7 @@
       <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
       <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
       <symbol id="i-id-card" viewBox="0 0 24 24"><path d="M13 19a4 4 0 00-8 0M16 10h2M16 14h2"/><circle cx="9" cy="12" r="3"/><rect x="2" y="5" width="20" height="14" rx="2"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
       <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
       <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zM14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8"/></symbol>
       <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
@@ -137,15 +140,16 @@
         <img class="hero-photo" src="assets/img/headshot.jpg" alt="Laxmi Poudel" width="480" height="600" fetchpriority="high" />
         <div class="hero-text">
           <p class="eyebrow eyebrow--open">
-            <span class="status-dot" aria-hidden="true"></span> Open to Software Engineer and SDET roles
+            <span class="status-dot" aria-hidden="true"></span> Open to software engineer roles
           </p>
           <h1 class="hero-title"><span class="accent-text">Laxmi&nbsp;Poudel</span></h1>
           <p class="hero-role">
             Software engineer in the Syracuse area. I write full-stack features and the automated tests for them.
           </p>
           <ul class="hero-facts" role="list">
+            <li><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg> Test Engineer at SRCTec</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-map-pin"/></svg> Remote-first, or onsite Syracuse,&nbsp;NY</li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-id-card"/></svg> U.S. Citizen &middot; clearance-eligible</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-id-card"/></svg> U.S. Citizen &middot; Eligible for U.S. Security Clearance</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> Available with two weeks' notice</li>
           </ul>
           <p class="hero-lead">
@@ -154,18 +158,18 @@
           </p>
 
           <ul class="stat-chips" role="list">
-            <li><span class="stat-num">2x</span> faster DB queries</li>
-            <li><span class="stat-num">~20%</span> better data accuracy</li>
-            <li><span class="stat-num">0&nbsp;to&nbsp;100%</span> first-time pass on one FPGA step</li>
+            <li><span class="stat-num">2x</span> faster DB queries <span class="stat-src">(Saab, 2023)</span></li>
+            <li><span class="stat-num">~20%</span> better data accuracy <span class="stat-src">(Saab, 2023)</span></li>
+            <li><span class="stat-num">0&nbsp;to&nbsp;100%</span> first-time pass on one FPGA step <span class="stat-src">(SRCTec)</span></li>
           </ul>
 
           <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#projects" class="btn btn-primary">View my work</a>
             <a href="assets/resume/Laxmi-Poudel-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
-              <svg class="i" aria-hidden="true"><use href="#i-file-text"/></svg> View R&eacute;sum&eacute;
+              <svg class="i" aria-hidden="true"><use href="#i-file-text"/></svg> View r&eacute;sum&eacute;
             </a>
             <a href="#contact" class="btn btn-link">Get in touch</a>
-            <span class="cta-note">PDF &middot; opens in a new tab &middot; updated Sep 2026</span>
+            <span class="cta-note">PDF &middot; opens in a new tab &middot; updated Oct 2026</span>
           </div>
 
           <div class="hero-socials">
@@ -193,13 +197,13 @@
                 <span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Tailwind</span><span>MapLibre</span><span>PWA</span><span>Playwright</span>
               </div>
               <h3>Nepal &times; Japan Trip Planner <span class="tl-flag">Featured</span></h3>
-              <p class="work-sub">Solo build &middot; v7.8.0</p>
+              <p class="work-sub">v7.8.0</p>
               <p class="work-outcome">An installable trip planner that keeps working with no signal, built for a 32-day trip across Nepal and Japan.</p>
 
               <div class="case-cols">
                 <div class="case-block">
                   <p class="case-label">Why I built it</p>
-                  <p>Planning the trip meant notes, spreadsheets, screenshots and map pins in separate places, and none of it worked on a phone in Kathmandu with no signal.</p>
+                  <p>I wanted the notes, spreadsheets, screenshots and map pins for the trip in one place, and one that still works on a phone with no signal.</p>
 
                   <p class="case-label">What the tests cover</p>
                   <ul class="evidence-chips" role="list">
@@ -213,9 +217,9 @@
                   <p class="case-label">How it works</p>
                   <ul class="case-list" role="list">
                     <li>Static export on GitHub Pages. A hand-rolled service worker precaches the app shell, so it installs to a home screen and runs offline.</li>
-                    <li>Runs local-first, with plans in <code>localStorage</code>; an account is only needed for optional cross-device sync.</li>
-                    <li>The map is MapLibre on OpenFreeMap tiles.</li>
-                    <li>Every PR runs typecheck, ESLint with zero warnings, Vitest, a production build, byte budgets and a Firestore rules emulator check, plus Playwright end-to-end and visual jobs. A release gate blocks publishing without a new version, and a smoke test hits the live site after each deploy.</li>
+                    <li>Runs local-first, with plans in <code>localStorage</code>. Firestore sync is optional and off unless configured. The live app sits behind a sign-in, so the screenshots use sample data.</li>
+                    <li>A MapLibre map shows each day's stops and the route between them.</li>
+                    <li>CI on every PR: typecheck, ESLint with zero warnings, Vitest, a production build, byte budgets, a Firestore rules check, and Playwright end-to-end and visual jobs. A release gate blocks a deploy without a version bump, and a smoke test checks the live site afterward.</li>
                   </ul>
                 </div>
               </div>
@@ -228,9 +232,6 @@
           </article>
 
           <article class="work-card work-card--wide glow-card" data-reveal>
-            <div class="work-media work-media--frame">
-              <img src="assets/img/spog.jpg" alt="Illustration of three cloud providers feeding one monitoring dashboard" width="800" height="500" loading="lazy" />
-            </div>
             <div class="work-body">
               <div class="work-tags">
                 <span>React</span><span>TypeScript</span><span>Material UI</span><span>Express</span><span>MongoDB</span><span>Grafana</span>
@@ -239,26 +240,27 @@
               <p class="work-sub">RIT senior capstone &middot; sponsored by LenelS2 (Honeywell) &middot; team of 5 &middot; Aug 2024 - May 2025</p>
               <p class="work-outcome">Extended the sponsor's multi-cloud monitoring dashboard with a typed React front end and role-based access.</p>
 
-              <div class="case-block">
-                <p class="case-label">The problem</p>
-                <p>Cost, performance and alerting data for AWS, Azure and GCP sat in three separate consoles. The sponsor's internal React dashboard was meant to unify them, but it was hard to change and had no real access control.</p>
-              </div>
-              <div class="case-block">
-                <p class="case-label">What I built</p>
-                <ul class="case-list" role="list">
-                  <li>Migrated the front end from JavaScript to TypeScript and standardized on Material UI, so bad props fail at compile time instead of in a sponsor demo.</li>
-                  <li>Built login, user creation and the "Persona" role-based privilege model in the TypeScript/Express people service (REST and MongoDB).</li>
-                  <li>Rendered multi-cloud metrics and logs through Grafana chart components in the React shell.</li>
-                </ul>
-              </div>
-              <div class="case-block">
-                <p class="case-label">Delivery</p>
-                <ul class="evidence-chips" role="list">
-                  <li>delivered to the sponsor</li>
-                  <li>5-person Agile team</li>
-                  <li>front end fully typed</li>
-                  <li>role-based access control</li>
-                </ul>
+              <div class="case-cols">
+                <div class="case-block">
+                  <p class="case-label">The problem</p>
+                  <p>Cost, performance and alerting data for AWS, Azure and GCP sat in three separate consoles. The sponsor's internal React dashboard was meant to unify them, but it was hard to change and had no real access control.</p>
+
+                  <p class="case-label">Delivery</p>
+                  <ul class="evidence-chips" role="list">
+                    <li>delivered to the sponsor</li>
+                    <li>5-person Agile team</li>
+                    <li>front end fully typed</li>
+                    <li>role-based access control</li>
+                  </ul>
+                </div>
+                <div class="case-block">
+                  <p class="case-label">What I built</p>
+                  <ul class="case-list" role="list">
+                    <li>Migrated the front end from JavaScript to TypeScript and standardized on Material UI, so bad props fail at compile time instead of in a sponsor demo.</li>
+                    <li>Built login, user creation and the "Persona" role-based privilege model in the TypeScript/Express people service (REST and MongoDB).</li>
+                    <li>Rendered multi-cloud metrics and logs through Grafana chart components in the React shell.</li>
+                  </ul>
+                </div>
               </div>
 
               <div class="work-links">
@@ -270,26 +272,13 @@
         </div>
 
         <h3 class="subhead" data-reveal>Other work</h3>
-        <div class="work-grid">
-          <article class="work-card work-card--mini glow-card" data-reveal>
-            <div class="work-body">
-              <div class="work-tags">
-                <span>Python</span><span>PostgreSQL</span><span>pgvector</span><span>Docker</span>
-              </div>
-              <h3>NOVA <span class="tl-flag">In progress</span></h3>
-              <p>A locally hosted agent that turns software requirements into structured test plans and keeps your corrections as inspectable memory. So far it is documentation (requirements, architecture, ADRs, a threat model), three research spikes with measured results, database migrations, an inference gateway and CI. No application services yet.</p>
-              <div class="work-links">
-                <a class="work-link" href="https://github.com/Powan55/NOVA" target="_blank" rel="noopener noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
-              </div>
-            </div>
-          </article>
-
+        <div class="other-work">
           <article class="work-card work-card--mini glow-card" data-reveal>
             <div class="work-body">
               <div class="work-tags">
                 <span>Java</span><span>Spring Boot</span><span>JSP</span><span>Maven</span><span>JUnit 5</span>
               </div>
-              <h3>Trivial-Trivia</h3>
+              <h4>Trivial-Trivia</h4>
               <p>Team project: a multiple-choice trivia game with accounts and saved scores, built in sprints with a design doc each sprint. 111 JUnit 5 tests, with line coverage around 94% and an 85% gate on the build. The hosted Azure instance is gone; the browser demo is a static copy of the game loop.</p>
               <div class="work-links">
                 <a class="work-link" href="https://powan55.github.io/Trivial-Trivia/" target="_blank" rel="noopener noreferrer">Browser demo <svg class="i" aria-hidden="true"><use href="#i-external-link"/></svg></a>
@@ -297,6 +286,12 @@
               </div>
             </div>
           </article>
+
+          <div class="work-row glow-card" data-reveal>
+            <h4>NOVA <span class="tl-flag">In progress</span></h4>
+            <p>Locally hosted agent that turns software requirements into test plans. Docs and spikes so far, no application services yet.</p>
+            <a class="work-link" href="https://github.com/Powan55/NOVA" target="_blank" rel="noopener noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
+          </div>
         </div>
 
         <div class="center-cta" data-reveal>
@@ -429,6 +424,9 @@
           <p>
             I want a software engineer role where I'm back to building features on a full-stack team.
           </p>
+          <p>
+            U.S. Citizen. Eligible for U.S. Security Clearance.
+          </p>
         </div>
       </div>
     </section>
@@ -437,7 +435,7 @@
       <div class="container contact-grid">
         <div data-reveal>
           <h2 id="contact-title" class="section-title">Get in touch</h2>
-          <p class="contact-lead">Email is the fastest way to reach me.</p>
+          <p class="contact-lead">Email is the fastest way to reach me. I'm looking at software engineer and SDET roles.</p>
           <div class="contact-email">
             <a class="btn btn-primary" href="mailto:laxmipoudel311@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg> laxmipoudel311@gmail.com</a>
             <button type="button" id="copy-email" class="btn btn-ghost">Copy address</button>
@@ -456,9 +454,8 @@
         <div class="contact-right" data-reveal>
           <form name="contact" novalidate>
             <p class="form-hint">Or leave a message here. This form is optional.</p>
-            <div class="field field--hp" aria-hidden="true">
-              <label for="f-hp">Leave this field empty</label>
-              <input id="f-hp" type="text" name="_hp" tabindex="-1" autocomplete="off" />
+            <div class="field--hp" aria-hidden="true">
+              <input type="text" name="_hp" tabindex="-1" autocomplete="off" />
             </div>
             <div class="field">
               <label for="f-name">Name</label>
@@ -472,8 +469,8 @@
               <label for="f-message">Message</label>
               <textarea id="f-message" name="Message" rows="5" maxlength="2000" placeholder="Your message" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-            <span id="msg" role="status" aria-live="polite"></span>
+            <button type="submit" class="btn btn-primary btn-block">Send message</button>
+            <span id="msg" role="status"></span>
           </form>
         </div>
       </div>
