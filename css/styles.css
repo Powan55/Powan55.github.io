@@ -195,6 +195,11 @@ main:focus { outline: none; }
 .nav-actions { display: flex; align-items: center; gap: 10px; }
 .nav-burger { display: none; }
 
+/* JS-only controls and the static nav layout when scripts are off */
+html:not(.js) #theme-toggle, html:not(.js) #copy-email, html:not(.js) #copy-status,
+html:not(.js) .contact-right { display: none; }
+html:not(.js) .contact-grid { grid-template-columns: 1fr; }
+
 .hero {
   position: relative; min-height: calc(100svh - var(--nav-h));
   display: flex; align-items: center;
@@ -416,7 +421,7 @@ main:focus { outline: none; }
 
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: start; }
 .contact-lead { color: var(--text-muted); margin-bottom: var(--space-4); }
-.contact-email { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: var(--space-4); }
+.contact-email { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: var(--space-2); }
 .contact-list { display: grid; gap: 12px; margin-bottom: var(--space-4); }
 .contact-list li { display: flex; align-items: center; gap: 12px; color: var(--text-muted); }
 .contact-list .i { color: var(--accent); }
@@ -439,7 +444,7 @@ main:focus { outline: none; }
 #msg { font-size: .9rem; min-height: 1.2em; color: var(--success); font-weight: 500; }
 #msg.error { color: var(--danger); }
 #msg a { text-decoration: underline; }
-#copy-status { font-size: .9rem; min-height: 1.4em; margin: calc(var(--space-3) * -1) 0 var(--space-3); color: var(--text-muted); }
+#copy-status { font-size: .9rem; min-height: 1.4em; margin-bottom: var(--space-3); color: var(--text-muted); }
 #copy-status span { color: var(--text); user-select: all; }
 
 .site-footer { border-top: 1px solid var(--border); padding-block: var(--space-5); background: var(--bg); }
@@ -478,8 +483,12 @@ main:focus { outline: none; }
 }
 
 @media (max-width: 900px) {
-  .nav-burger { display: inline-grid; }
-  #primary-nav {
+  html:not(.js) #site-header { position: static; height: auto; padding-block: 8px; }
+  html:not(.js) .nav-wrap { flex-wrap: wrap; justify-content: center; }
+  html:not(.js) .nav-list { flex-wrap: wrap; justify-content: center; }
+  html:not(.js) .nav-list a { padding-block: 10px; }
+  .js .nav-burger { display: inline-grid; }
+  .js #primary-nav {
     position: fixed; top: var(--nav-h); right: 0; bottom: 0; width: min(78vw, 300px);
     background: var(--bg-elev); border-left: 1px solid var(--border);
     transform: translateX(100%); visibility: hidden;
@@ -487,15 +496,15 @@ main:focus { outline: none; }
     padding-top: 16px; z-index: 99;
     box-shadow: -20px 0 60px rgba(0,0,0,.4);
   }
-  body.nav-open #primary-nav { transform: translateX(0); visibility: visible; transition: transform .3s ease; }
+  .js body.nav-open #primary-nav { transform: translateX(0); visibility: visible; transition: transform .3s ease; }
   body::after {
     content: ""; position: fixed; inset: 0; z-index: 98;
     background: rgba(0, 0, 0, .55); opacity: 0; pointer-events: none;
     transition: opacity .3s ease;
   }
   body.nav-open::after { opacity: 1; pointer-events: auto; }
-  .nav-list { flex-direction: column; align-items: stretch; gap: 4px; padding: 0 16px; }
-  .nav-list a { padding: 12px 14px; font-size: 1rem; }
+  .js .nav-list { flex-direction: column; align-items: stretch; gap: 4px; padding: 0 16px; }
+  .js .nav-list a { padding: 12px 14px; font-size: 1rem; }
   .nav-list a::after { display: none; }
   body.nav-open { overflow: hidden; }
 }
