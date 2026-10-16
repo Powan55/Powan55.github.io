@@ -110,8 +110,8 @@
       <nav id="primary-nav" aria-label="Primary">
         <ul class="nav-list" role="list">
           <li><a href="#home">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -177,6 +177,73 @@
             <a href="https://www.linkedin.com/in/laxmi-poudel-b8379b166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
             <a class="hero-email" href="mailto:laxmipoudel311@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg> laxmipoudel311@gmail.com</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section section-alt" aria-labelledby="exp-title">
+      <div class="container">
+        <h2 id="exp-title" class="section-title" data-reveal>Experience</h2>
+        <ol class="timeline" role="list">
+          <li class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card glow-card">
+              <div class="tl-head">
+                <h3>Test Engineer</h3>
+                <span class="tl-co">SRCTec &middot; North Syracuse, NY</span>
+                <span class="tl-date">Aug 2025 - Present</span>
+              </div>
+              <ul class="tl-bullets" role="list">
+                <li>Build and maintain the automated test software for a radar production program in LabVIEW, TestStand, and Python; develop in-house test applications and integrate third-party packages to support the program's test stations.</li>
+                <li>Working on an initiative to raise first-time yield on a critical test station from <strong>below 50% toward an 80%+ target</strong> by identifying and eliminating false failures in the test software.</li>
+                <li>Root-caused a system-level FPGA programming failure and added a post-programming power cycle, lifting that step's first-time pass rate from <strong>0% to 100%</strong> and cutting it from two test runs to one (<strong>~50% less test time</strong> on the step).</li>
+                <li>Restored production after a Windows 10-to-11 upgrade broke a board-level test's detection of TI Fusion for PMIC programming, tracing the regression to the OS change and shipping a hotfix.</li>
+                <li>Led migration of all program test software from LabVIEW 2016 to 2021 across the test stations and <strong>8 software packages in under 3 months</strong>.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card glow-card">
+              <div class="tl-head">
+                <h3>Test Engineering Intern</h3>
+                <span class="tl-co">SRCTec &middot; North Syracuse, NY</span>
+                <span class="tl-date">Jun 2024 - Aug 2024</span>
+              </div>
+              <ul class="tl-bullets" role="list">
+                <li>Cut manual effort <strong>~40%</strong> by automating radar test delay-line and RF-switch settings with Python over HTTPS.</li>
+                <li>Resolved <strong>15 issues</strong> across multiple libraries and upgraded <strong>Python 2.7 to 3.10</strong>, clearing backlog and improving testing speed <strong>~25%</strong>.</li>
+                <li>Migrated radar calibration software from Linux to Windows Server, improving performance and compatibility.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item" data-reveal>
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-card glow-card">
+              <div class="tl-head">
+                <h3>Software Engineering Co-op <span class="tl-flag">Full-stack</span></h3>
+                <span class="tl-co">Saab Inc. &middot; East Syracuse, NY</span>
+                <span class="tl-date">Jan 2023 - Aug 2023</span>
+              </div>
+              <ul class="tl-bullets" role="list">
+                <li>Launched an Air Situation Display (ASD) feature letting users view all aircraft within a radius on click, replacing a top-aircraft-only view.</li>
+                <li>Worked with the FAA to integrate the SysMon module into the Cooperative Surveillance System (CSS), connecting the Angular front end to the Java back end through APIs.</li>
+                <li>Improved data accuracy <strong>~20%</strong> by building filtering for low-quality ADS-B and MLAT data.</li>
+                <li>Optimized PostgreSQL queries for <strong>~2x faster</strong> data retrieval; delivered in an Agile/Scrum team.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+
+        <div class="edu-card glow-card" data-reveal>
+          <svg class="i" aria-hidden="true"><use href="#i-graduation-cap"/></svg>
+          <div>
+            <h3>B.S. in Software Engineering</h3>
+            <span class="tl-co">Rochester Institute of Technology (RIT) &middot; Rochester, NY</span>
+          </div>
+          <span class="tl-date">Aug 2021 - May 2025</span>
         </div>
       </div>
     </section>
@@ -296,73 +363,6 @@
 
         <div class="center-cta" data-reveal>
           <a href="https://github.com/Powan55" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">See more on GitHub <svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="section section-alt" aria-labelledby="exp-title">
-      <div class="container">
-        <h2 id="exp-title" class="section-title" data-reveal>Experience</h2>
-        <ol class="timeline" role="list">
-          <li class="tl-item" data-reveal>
-            <div class="tl-dot" aria-hidden="true"></div>
-            <div class="tl-card glow-card">
-              <div class="tl-head">
-                <h3>Test Engineer</h3>
-                <span class="tl-co">SRCTec &middot; North Syracuse, NY</span>
-                <span class="tl-date">Aug 2025 - Present</span>
-              </div>
-              <ul class="tl-bullets" role="list">
-                <li>Build and maintain the automated test software for a radar production program in LabVIEW, TestStand, and Python; develop in-house test applications and integrate third-party packages to support the program's test stations.</li>
-                <li>Working on an initiative to raise first-time yield on a critical test station from <strong>below 50% toward an 80%+ target</strong> by identifying and eliminating false failures in the test software.</li>
-                <li>Root-caused a system-level FPGA programming failure and added a post-programming power cycle, lifting that step's first-time pass rate from <strong>0% to 100%</strong> and cutting it from two test runs to one (<strong>~50% less test time</strong> on the step).</li>
-                <li>Restored production after a Windows 10-to-11 upgrade broke a board-level test's detection of TI Fusion for PMIC programming, tracing the regression to the OS change and shipping a hotfix.</li>
-                <li>Led migration of all program test software from LabVIEW 2016 to 2021 across the test stations and <strong>8 software packages in under 3 months</strong>.</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="tl-item" data-reveal>
-            <div class="tl-dot" aria-hidden="true"></div>
-            <div class="tl-card glow-card">
-              <div class="tl-head">
-                <h3>Test Engineering Intern</h3>
-                <span class="tl-co">SRCTec &middot; North Syracuse, NY</span>
-                <span class="tl-date">Jun 2024 - Aug 2024</span>
-              </div>
-              <ul class="tl-bullets" role="list">
-                <li>Cut manual effort <strong>~40%</strong> by automating radar test delay-line and RF-switch settings with Python over HTTPS.</li>
-                <li>Resolved <strong>15 issues</strong> across multiple libraries and upgraded <strong>Python 2.7 to 3.10</strong>, clearing backlog and improving testing speed <strong>~25%</strong>.</li>
-                <li>Migrated radar calibration software from Linux to Windows Server, improving performance and compatibility.</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="tl-item" data-reveal>
-            <div class="tl-dot" aria-hidden="true"></div>
-            <div class="tl-card glow-card">
-              <div class="tl-head">
-                <h3>Software Engineering Co-op <span class="tl-flag">Full-stack</span></h3>
-                <span class="tl-co">Saab Inc. &middot; East Syracuse, NY</span>
-                <span class="tl-date">Jan 2023 - Aug 2023</span>
-              </div>
-              <ul class="tl-bullets" role="list">
-                <li>Launched an Air Situation Display (ASD) feature letting users view all aircraft within a radius on click, replacing a top-aircraft-only view.</li>
-                <li>Worked with the FAA to integrate the SysMon module into the Cooperative Surveillance System (CSS), connecting the Angular front end to the Java back end through APIs.</li>
-                <li>Improved data accuracy <strong>~20%</strong> by building filtering for low-quality ADS-B and MLAT data.</li>
-                <li>Optimized PostgreSQL queries for <strong>~2x faster</strong> data retrieval; delivered in an Agile/Scrum team.</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-
-        <div class="edu-card glow-card" data-reveal>
-          <svg class="i" aria-hidden="true"><use href="#i-graduation-cap"/></svg>
-          <div>
-            <h3>B.S. in Software Engineering</h3>
-            <span class="tl-co">Rochester Institute of Technology (RIT) &middot; Rochester, NY</span>
-          </div>
-          <span class="tl-date">Aug 2021 - May 2025</span>
         </div>
       </div>
     </section>
