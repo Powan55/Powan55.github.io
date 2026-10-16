@@ -183,16 +183,21 @@
     "https://script.google.com/macros/s/AKfycbzjlwJ2xRaJ1GmnVu3ViGAOoypEwBl6CH7ifqh6d-ootjngSyWye5yEQWSnf1L-CxP2Lg/exec";
   const form = document.forms["contact"];
   const msg = document.getElementById("msg");
+  const msgErr = document.getElementById("msg-err");
+  let clearTimer;
+  // two always-present live regions: status for success, alert for errors
   function say(text, isError, withMail) {
-    msg.className = isError ? "error" : "";
-    msg.setAttribute("role", isError ? "alert" : "status");
-    msg.textContent = text;
+    clearTimeout(clearTimer);
+    const on = isError ? msgErr : msg;
+    (isError ? msg : msgErr).textContent = "";
+    on.textContent = text;
     if (withMail) {
       const a = document.createElement("a");
       a.href = "mailto:" + email;
       a.textContent = email;
-      msg.append(" Email me at ", a, ".");
+      on.append(" Email me at ", a, ".");
     }
+    if (text && !isError) clearTimer = setTimeout(() => { msg.textContent = ""; }, 12000);
   }
   if (form) {
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -220,7 +225,6 @@
           if (!r.ok) throw new Error("HTTP " + r.status);
           say("Thanks, your message was sent.", false);
           form.reset();
-          setTimeout(() => { msg.textContent = ""; }, 12000);
         })
         .catch((err) => {
           console.error("Contact form failed:", err);

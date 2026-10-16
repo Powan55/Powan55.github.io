@@ -451,9 +451,10 @@ html[data-theme="light"] .hero-title .accent-text { color: #075985; }
 }
 .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); opacity: 1; }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
-#msg { font-size: .9rem; min-height: 1.2em; color: var(--success); font-weight: 500; }
-#msg.error { color: var(--danger); }
-#msg a { text-decoration: underline; }
+.form-msg { font-size: .9rem; min-height: 1.2em; font-weight: 500; }
+#msg { color: var(--success); }
+#msg-err { color: var(--danger); }
+.form-msg a { text-decoration: underline; }
 #copy-status { font-size: .9rem; min-height: 1.4em; margin-bottom: var(--space-3); color: var(--text-muted); }
 #copy-status span { color: var(--text); user-select: all; }
 
