@@ -12,4 +12,5 @@ Open `index.html`, or from this folder run `python -m http.server` and go to htt
 - `css/styles.css`: styles
 - `js/main.js`: nav, theme toggle, scroll reveal, contact form
 - `assets/img/`: images
+- `assets/fonts/`: self-hosted fonts (OFL, see LICENSE)
 - `assets/resume/`: resume PDF

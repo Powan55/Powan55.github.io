@@ -44,13 +44,13 @@
 
   const navToggle = document.getElementById("nav-toggle");
   const nav = document.getElementById("primary-nav");
-  const burgerIcon = navToggle ? navToggle.querySelector("i") : null;
+  const burgerIcon = navToggle ? navToggle.querySelector("use") : null;
 
   function setNav(open) {
     document.body.classList.toggle("nav-open", open);
     navToggle.setAttribute("aria-expanded", String(open));
     navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-    if (burgerIcon) burgerIcon.className = open ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+    if (burgerIcon) burgerIcon.setAttribute("href", open ? "#i-x" : "#i-menu");
   }
   if (navToggle && nav) {
     const isOpen = () => document.body.classList.contains("nav-open");
@@ -80,8 +80,8 @@
     root.setAttribute("data-theme", theme);
     if (themeToggle) {
       const dark = theme === "dark";
-      const icon = themeToggle.querySelector("i");
-      if (icon) icon.className = dark ? "fa-solid fa-moon" : "fa-solid fa-sun";
+      const icon = themeToggle.querySelector("use");
+      if (icon) icon.setAttribute("href", dark ? "#i-moon" : "#i-sun");
       themeToggle.setAttribute("aria-pressed", String(dark));
     }
   }
